@@ -21,35 +21,47 @@ public class CatalogService {
     @Autowired
     private ItemMapper itemMapper;
 
-    public List<Category> getCategoryList() {
+    public List<Category> getCategoryList()
+     {
         return categoryMapper.getCategoryList();
     }
 
-    public Category getCategory(String categoryId) {
-        return categoryMapper.getCategory(categoryId);
+    public Category getCategoryByCategoryId(String categoryId)
+    {
+        return categoryMapper.getCategoryByCategoryId(categoryId);
     }
 
-    public Product getProduct(String productId) {
-        return productMapper.getProduct(productId);
+    public List<Product> getProductList()
+    {
+        return productMapper.getProductList();
     }
 
-    public List<Product> getProductListByCategory(String categoryId) {
-        return productMapper.getProductListByCategory(categoryId);
+    public List<Product> getProductListByCategoryId(String categoryId)
+    {
+        return productMapper.getProductListByCategoryId(categoryId);
     }
 
+    public Product getProductByProductId(String productId) {
+        return productMapper.getProductByProductId(productId);
+    }
     public List<Product> searchProductList(String keyword) {
         return productMapper.searchProductList("%" + keyword.toLowerCase() + "%");
     }
 
-    public List<Item> getItemListByProduct(String productId){
-        return itemMapper.getItemListByProduct(productId);
+    public List<Item> getItemListByProductId(String productId){
+        return itemMapper.getItemListByProductId(productId);
     }
 
-    public Item getItem(String itemId){
-        return itemMapper.getItem(itemId);
+    public Item getItemByItemId(String itemId){
+        return itemMapper.getItemByItemId(itemId);
     }
 
-    public int getItemInventoryQuantity (String itemId){
+    public int getItemQuantity (String itemId){
         return itemMapper.getQuantity(itemId) ;
+    }
+
+    public void updateItemQuantity(String itemId, int quantity)
+    {
+        itemMapper.updateQuantity(itemId, quantity);
     }
 }

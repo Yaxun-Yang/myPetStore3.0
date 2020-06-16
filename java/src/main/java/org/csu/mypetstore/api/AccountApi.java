@@ -98,7 +98,7 @@ public class AccountApi {
     }
 
     @PostMapping("/verifyCode")
-    public void sendVerificationCode(@RequestParam String phoneNumber,  HttpServletRequest httpServletRequest)
+    public void sendVerificationCode( String phoneNumber,  HttpServletRequest httpServletRequest)
     {
 
 

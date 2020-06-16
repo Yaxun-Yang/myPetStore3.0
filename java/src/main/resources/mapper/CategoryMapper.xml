@@ -3,19 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.csu.mypetstore.persistence.CategoryMapper">
-    <select id="getCategory"  resultType="Category">
-        SELECT
-            CATEGORYID,
-            NAME,
-            DESCN AS description
+    <select id="getCategoryByCategoryId"  resultType="Category">
+        SELECT *
         FROM CATEGORY
-        WHERE CATEGORYID = #{categoryId}
+        WHERE CATEGORYID = #{categoryId};
     </select>
     <select id="getCategoryList" resultType="Category">
-    SELECT
-    CATEGORYID ,
-    NAME,
-    DESCN AS description
-    FROM CATEGORY
+    SELECT *
+    FROM CATEGORY;
     </select>
 </mapper>

@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e5ff389-2a7c-42de-988b-2d8191c6311a" name="Default Changelist" comment="" />
+    <list default="true" id="9e5ff389-2a7c-42de-988b-2d8191c6311a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Vue/how to run.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vue/login/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vue/login/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue/login/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ItemMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ProductMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/CatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/CatalogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ItemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,10 +40,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
   </component>
@@ -41,6 +67,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -57,7 +84,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RunManager" selected="Spring Boot.MypetstoreApplication">
     <configuration name="MypetstoreApplicationTests.testAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -103,11 +130,15 @@
       <workItem from="1592205964638" duration="1576000" />
       <workItem from="1592207739151" duration="953000" />
       <workItem from="1592208715808" duration="30806000" />
+      <workItem from="1592294830593" duration="15372000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="175" y="0" key="#Custom_Plugin_Repositories" timestamp="1592204720716">
@@ -134,49 +165,49 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592250922255" />
-    <state width="1313" height="286" key="GridCell.Tab.0.bottom" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.0.bottom" timestamp="1592314831235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state width="1313" height="286" key="GridCell.Tab.0.center" timestamp="1592252469727">
+    <state width="1313" height="264" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592314831235" />
+    <state width="1313" height="264" key="GridCell.Tab.0.center" timestamp="1592314831234">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592252469727" />
-    <state width="1313" height="286" key="GridCell.Tab.0.left" timestamp="1592252469727">
+    <state width="1313" height="264" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592314831234" />
+    <state width="1313" height="264" key="GridCell.Tab.0.left" timestamp="1592314831233">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592252469727" />
-    <state width="1313" height="286" key="GridCell.Tab.0.right" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592314831233" />
+    <state width="1313" height="264" key="GridCell.Tab.0.right" timestamp="1592314831235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state width="1313" height="286" key="GridCell.Tab.1.bottom" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592314831235" />
+    <state width="1313" height="264" key="GridCell.Tab.1.bottom" timestamp="1592314831236">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state width="1313" height="286" key="GridCell.Tab.1.center" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592314831236" />
+    <state width="1313" height="264" key="GridCell.Tab.1.center" timestamp="1592314831235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state width="1313" height="286" key="GridCell.Tab.1.left" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592314831235" />
+    <state width="1313" height="264" key="GridCell.Tab.1.left" timestamp="1592314831235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state width="1313" height="286" key="GridCell.Tab.1.right" timestamp="1592252469728">
+    <state width="1313" height="264" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592314831235" />
+    <state width="1313" height="264" key="GridCell.Tab.1.right" timestamp="1592314831236">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="286" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592252469728" />
-    <state x="68" y="0" key="SettingsEditor" timestamp="1592208692640">
+    <state width="1313" height="264" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592314831236" />
+    <state x="68" y="0" key="SettingsEditor" timestamp="1592303639585">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592208692640" />
+    <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592303639585" />
     <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1592208920214">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="300" y="147" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592208920214" />
-    <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1592247335388">
+    <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1592305541977">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592247335388" />
+    <state x="262" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1592305541977" />
   </component>
 </project>

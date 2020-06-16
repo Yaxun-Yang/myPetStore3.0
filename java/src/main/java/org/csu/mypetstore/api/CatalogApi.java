@@ -1,103 +1,199 @@
 package org.csu.mypetstore.api;
 
-import org.csu.mypetstore.domain.User;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
 import org.csu.mypetstore.domain.Category;
+
 import org.csu.mypetstore.domain.Item;
 import org.csu.mypetstore.domain.Product;
 import org.csu.mypetstore.service.CatalogService;
+import org.csu.mypetstore.template.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/catalog")
 public class CatalogApi {
     @Autowired
     private CatalogService catalogService;
 
-    @GetMapping("/viewMain")
-    public String viewMain(Model model, HttpServletRequest httpServletRequest, String msg)
+    @GetMapping("/categoryList")
+    public  ResponseTemplate getCategoryList()
     {
-        model.addAttribute("msg",msg);
-        User user =(User) httpServletRequest.getSession().getAttribute("account");
-       if(user != null)
-       {
-           model.addAttribute("account", user);
-           model.addAttribute("msg2","Hello, "+ user.getUsername()+"!");
-       }
-       else
-       {
-           model.addAttribute("msg2","Welcome to MyPetStore, look for whatever you want!");
-       }
-
-        return"/catalog/main";
+        JSONObject data = new JSONObject();
+        data.put("categoryList", catalogService.getCategoryList());
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
     }
 
-    @GetMapping("/viewCategory")
-    public String viewCategory(String categoryId, Model model, HttpServletRequest httpServletRequest)
+    @GetMapping("/category/{categoryId}")
+    public ResponseTemplate getCategory(@PathVariable String categoryId)
     {
-        User user = (User)httpServletRequest.getSession().getAttribute("account");
-        model.addAttribute("account", user);
-        //原解决方案未考虑用不合法的参数请求访问，此时也应该返回原页，通过重定向实现
-        Category category = catalogService.getCategory(categoryId);
-        if (categoryId != null) {
-            List<Product> productList = catalogService.getProductListByCategory(categoryId);
-            model.addAttribute("productList", productList);
-            model.addAttribute("category", category);
-            return "/catalog/category";
-        }
-        return "redirect:/catalog/viewMain";
+
+        JSONObject data=new JSONObject();
+        Category category = catalogService.getCategoryByCategoryId(categoryId);
+        data.put("category", category);
+        return ResponseTemplate.builder()
+                            .data(data)
+                            .status(200)
+                            .statusText("OK")
+                            .build();
     }
 
-    @GetMapping("/viewProduct")
-    public String viewProduct(String productId, Model model, HttpServletRequest httpServletRequest)
+    @GetMapping("/productList")
+    public ResponseTemplate getProductList()
     {
-        User user = (User)httpServletRequest.getSession().getAttribute("account");
-        model.addAttribute("account", user);
-        Product product = catalogService.getProduct(productId);
-        if(product != null)
-        {
-            System.out.println(product.getName());
-            List<Item> itemList = catalogService.getItemListByProduct(productId);
-            model.addAttribute("itemList",itemList);
-            model.addAttribute("product",product);
-            return "/catalog/product";
-        }
-        return "redirect:/catalog/viewCategory?categoryId="+((Category)model.getAttribute("category")).getCategoryId();
+        JSONObject data = new JSONObject();
+        data.put("productList", catalogService.getProductList()) ;
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
     }
 
-    @GetMapping("/viewItem")
-    public  String viewItem(String itemId, Model model, HttpServletRequest httpServletRequest)
+    @GetMapping("/productList/{categoryId}")
+    public ResponseTemplate getProductListByCategoryId(@PathVariable String categoryId)
     {
-        User user = (User)httpServletRequest.getSession().getAttribute("account");
-        model.addAttribute("account", user);
-        Item item = catalogService.getItem(itemId);
-        if(item != null)
-        {
-            Product product = catalogService.getProduct(item.getProductId());
-            model.addAttribute("product",product);
-            model.addAttribute("item",item);
-            int itemInventoryQuantity = catalogService.getItemInventoryQuantity(itemId);
-            model.addAttribute("itemQuantity",itemInventoryQuantity);
-
-            return "catalog/item";
-        }
-        return "redirect:/catalog/viewProduct?productId="+((Product)model.getAttribute("product")).getProductId();
+        JSONObject data = new JSONObject();
+        data.put("productList", catalogService.getProductListByCategoryId(categoryId)) ;
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
     }
 
-    @PostMapping("/viewSearchProducts")
-    public String viewSearchProducts(String keyword, Model model, HttpServletRequest httpServletRequest)
+    @GetMapping("/product/{productId}")
+    public ResponseTemplate getProductListByProductId(@PathVariable String productId)
     {
-        User user = (User)httpServletRequest.getSession().getAttribute("account");
-        model.addAttribute("account", user);
-        List<Product> productList = catalogService.searchProductList(keyword);
-        model.addAttribute("productList",productList);
-        return "catalog/searchProducts";
+        JSONObject data = new JSONObject();
+        data.put("product", catalogService.getProductByProductId(productId)) ;
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
     }
+
+    @GetMapping("/item/{itemId}")
+    public ResponseTemplate getItemByItemId(@PathVariable String itemId)
+    {
+        JSONObject data = new JSONObject();
+        data.put("item", catalogService.getItemByItemId(itemId)) ;
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
+    }
+
+    @GetMapping("/itemList/{productId}")
+    public ResponseTemplate getItemListByProductId(@PathVariable String productId)
+    {
+        JSONObject data = new JSONObject();
+        data.put("itemList", catalogService.getItemListByProductId(productId));
+        return ResponseTemplate.builder()
+                .data(data)
+                .status(200)
+                .statusText("OK")
+                .build();
+    }
+
+   @GetMapping("/productList/{keyWord}")
+    public ResponseTemplate searchProductList(@PathVariable String keyWord)
+   {
+       JSONObject data = new JSONObject();
+       data.put("productList", catalogService.searchProductList(keyWord));
+       return ResponseTemplate.builder()
+               .data(data)
+               .status(200)
+               .statusText("OK")
+               .build();
+   }
+
+   @GetMapping("/quantity/{itemId}")
+    public ResponseTemplate getItemQuantity(@PathVariable String itemId)
+   {
+       JSONObject data = new JSONObject();
+       data.put("quantity", catalogService.getItemQuantity(itemId));
+       return ResponseTemplate.builder()
+               .data(data)
+               .status(200)
+               .statusText("OK")
+               .build();
+   }
+
+   @PutMapping("/quantity/{itemId}")
+    public ResponseTemplate updateItemQuantity(@PathVariable String itemId, int quantity)
+   {
+       catalogService.updateItemQuantity(itemId, quantity);
+
+       JSONObject data = new JSONObject();
+       return ResponseTemplate.builder()
+               .data(data)
+               .status(200)
+               .statusText("OK")
+               .build();
+   }
+
+   @GetMapping("/")
+    public ResponseTemplate getView()
+   {
+       JSONArray data= new JSONArray();
+
+      List<Category> categories = catalogService.getCategoryList();
+      for(int i = 0; i < categories.size(); i++)
+      {
+          JSONObject category = new JSONObject();
+          category.put("id",categories.get(i).getCategoryId());
+
+          JSONArray productList = new JSONArray();
+          List<Product> products = catalogService.getProductListByCategoryId(categories.get(i).getCategoryId());
+
+
+          for(int j = 0; j < products.size(); j++)
+          {
+              JSONObject product = new JSONObject();
+              product.put("id", products.get(j).getProductId());
+              product.put("name", products.get(j).getName());
+              product.put("text", products.get(j).getText());
+
+              JSONArray itemList = new JSONArray();
+              List<Item> items = catalogService.getItemListByProductId(products.get(j).getProductId());
+              int u = 1;
+            for(int k=0; k<items.size(); k++)
+            {
+                JSONObject item3 = new JSONObject();
+                item3.put("index3",u++);
+                JSONArray item = new JSONArray();
+                for (int v =0 ;v<3 && k < items.size() ;v++, k++)
+                {
+                   item.add(items.get(k));
+
+                }
+                item3.put("item",  item);
+                itemList.add(item3);
+            }
+            product.put("itemList", itemList);
+            productList.add(product);
+          }
+            category.put("productList", productList);
+            data.add(category);
+      }
+
+
+       return ResponseTemplate.builder()
+               .data(data)
+               .status(200)
+               .statusText("OK")
+               .build();
+   }
 }
