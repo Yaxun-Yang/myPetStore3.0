@@ -10,12 +10,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GlobalExceptionAdvice {
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public Object handleException(Exception e) {
+    public ResponseTemplate handleException(Exception e) {
 
+        String msg = e.getMessage();
+        if (msg == null || msg.equals("")) {
+            return ResponseTemplate
+                    .builder()
+                    .status(500)
+                    .statusText("服务器出错")
+                    .build();
+        }
+        else {
+            return ResponseTemplate
+                    .builder()
+                    .status(401)
+                    .statusText(msg)
+                    .build();
+        }
 
-        return ResponseTemplate
-                .builder()
-                .status(500)
-                .statusText("服务器出错");
     }
 }

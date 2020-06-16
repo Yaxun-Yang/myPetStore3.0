@@ -16,8 +16,6 @@ import java.util.List;
 public class OrderService {
 
     @Autowired
-    private ItemMapper itemMapper;
-    @Autowired
     private OrderMapper orderMapper;
 
     @Autowired
@@ -27,20 +25,37 @@ public class OrderService {
         orderMapper.insertOrder(order);
     }
 
-    public void insertOrderStatus(Order order)
+    public Order getRecentOrder(String username)
     {
-        orderMapper.insertOrderStatus(order);
-    }
+        return orderMapper.getRecentOrder(username);
 
+    }
 
     public List<Order> getOrdersByUsername(String username) {
         return orderMapper.getOrdersByUsername(username);
     }
 
-    public int getOrderId(Order order)
+    public int getOrderId(String username)
     {
-        return orderMapper.getOrderId(order);
+        return orderMapper.getOrderId(username);
     }
 
+    public void paid(int orderId )
+    {
+        orderMapper.updatePaid(orderId, true);
+    }
+
+    public void insertLineItemList (List <LineItem> lineItemList)
+    {
+        for(int i=0; i<lineItemList.size();i++)
+        {
+            lineItemMapper.insertLineItem(lineItemList.get(i));
+        }
+    }
+
+    public void insertLineItem(LineItem lineItem)
+    {
+        lineItemMapper.insertLineItem(lineItem);
+    }
 
 }

@@ -17,8 +17,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/account")
-@CrossOrigin
-public class AccountApi {
+ class AccountApi {
 
     @Autowired
     private AccountService accountService;
@@ -28,12 +27,22 @@ public class AccountApi {
     {
         accountService.insertUser(user);
 
-        JSONObject data=new JSONObject();
 
         return ResponseTemplate.builder()
                 .status(200)
                 .statusText("OK")
-                .data(data)
+                .build();
+    }
+
+    @PutMapping("/user")
+    @UserLoginToken
+    public ResponseTemplate updateUser(User user)
+    {
+        accountService.updateUser(user);
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
                 .build();
     }
 
@@ -42,12 +51,20 @@ public class AccountApi {
     {
         accountService.insertAdmin(admin);
 
-        JSONObject data=new JSONObject();
-
         return ResponseTemplate.builder()
                 .status(200)
                 .statusText("OK")
-                .data(data)
+                .build();
+    }
+
+    @PutMapping("/admin")
+    @UserLoginToken
+    public ResponseTemplate updateAdmin(Admin admin)
+    {
+        accountService.updateAdmin(admin);
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
                 .build();
     }
 
@@ -94,7 +111,7 @@ public class AccountApi {
             {
                 return ResponseTemplate.builder()
                         .status(423)
-                        .statusText("用户不存在")
+                        .statusText("用户名或密码错误")
                         .build();
 
             }
@@ -130,7 +147,8 @@ public class AccountApi {
     {
 
 
-        String code =String.valueOf((int)(Math.random()*1000000));
+        //String code =String.valueOf((int)(Math.random()*1000000));
+        String code = "188234";
         httpServletRequest.getSession().setAttribute("code",code);
         //此处仅为模拟短信发送
         System.out.println("成功发送短信给"+phone+"，验证码为"+code);
@@ -157,12 +175,10 @@ public class AccountApi {
 //        } catch (ClientException e) {
 //            e.printStackTrace();
 //        }
-        JSONObject data=new JSONObject();
 
         return ResponseTemplate.builder()
                 .status(200)
                 .statusText("OK")
-                .data(data)
                 .build();
 
     }

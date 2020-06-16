@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 16/06/2020 21:44:16
+ Date: 17/06/2020 04:46:28
 */
 
 SET NAMES utf8mb4;
@@ -32,6 +32,7 @@ CREATE TABLE `admin`  (
 -- Records of admin
 -- ----------------------------
 INSERT INTO `admin` VALUES ('admin', 'admin', '111');
+INSERT INTO `admin` VALUES ('yyx', 'yyx', '111');
 
 -- ----------------------------
 -- Table structure for cartitem
@@ -43,6 +44,11 @@ CREATE TABLE `cartitem`  (
   `quantity` int(10) NOT NULL,
   PRIMARY KEY (`username`, `itemid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cartitem
+-- ----------------------------
+INSERT INTO `cartitem` VALUES ('wx', 'EST-1', 7);
 
 -- ----------------------------
 -- Table structure for category
@@ -452,7 +458,7 @@ CREATE TABLE `users`  (
   `username` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `email` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `addr` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `address` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `phone` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`username`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -463,6 +469,7 @@ CREATE TABLE `users`  (
 INSERT INTO `users` VALUES ('a', 'a', 'a', 'a', 'a');
 INSERT INTO `users` VALUES ('ACID', 'ACID', 'acid@yourdomain.com', '901 San Antonio Road', '555-555-5555');
 INSERT INTO `users` VALUES ('j2ee', 'j2ee', 'j2ee@yourdomain.com', '902 San Antonio Road', '322-513-1654');
+INSERT INTO `users` VALUES ('wx', 'wx', 'wx@csu.edu.cn', 'csu', '111');
 INSERT INTO `users` VALUES ('xyz', 'xyz', 'xyz@csu.edu.cn', 'a', 'a');
 
 SET FOREIGN_KEY_CHECKS = 1;

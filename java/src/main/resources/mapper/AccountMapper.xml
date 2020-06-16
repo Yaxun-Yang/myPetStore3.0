@@ -20,14 +20,13 @@
         SET
             PASSWORD = #{password},
             EMAIL = #{email},
-            ADDR = #{address},
+            ADDRESS = #{address},
             PHONE = #{phone}
         WHERE USERNAME = #{username};
     </update>
 
     <insert id="insertUser" >
         INSERT INTO USERS
-            (USERNAME, PASSWORD, EMAIL, ADDR, PHONE)
         VALUES(#{username}, #{password}, #{email}, #{address}, #{phone});
     </insert>
 
@@ -41,7 +40,6 @@
 
     <insert id="insertAdmin" >
         INSERT INTO ADMIN
-            (PASSWORD,USERNAME, PHONE)
         VALUES (#{password}, #{username}, #{phone});
     </insert>
 

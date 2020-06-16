@@ -16,9 +16,7 @@
       AND ITEMID = #{itemId};
     </select>
     <insert id="insertCartItem">
-        INSERT
-        INTO CARTITEM
-            (USERNAME, ITEMID, QUANTITY)
+        INSERT INTO CARTITEM
         VALUES (#{username}, #{itemId}, #{quantity});
 
     </insert>
@@ -40,6 +38,6 @@
         SET
             QUANTITY = #{quantity}
         WHERE USERNAME = #{username}
-         AND   ITEMiD = #{itemId}
+         AND   ITEMID = #{itemId}
     </update>
 </mapper>

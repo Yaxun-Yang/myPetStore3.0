@@ -11,11 +11,11 @@ public interface OrderMapper {
 
     List<Order> getOrdersByUsername(String username);
 
-    Order getOrder(int orderId);
-
     void insertOrder(Order order);
 
-    void insertOrderStatus(Order order);
+    Order getRecentOrder(String username);
 
-    int getOrderId(Order order);
+    int getOrderId(String username);
+
+    void updatePaid (int orderId, boolean paid);
 }

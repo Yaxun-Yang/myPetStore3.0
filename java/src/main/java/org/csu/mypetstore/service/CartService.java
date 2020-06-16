@@ -19,63 +19,63 @@ public class CartService {
     @Autowired
     private ItemMapper itemMapper;
 
-
+    public List<CartItem> getCart(String username)
+    {
+        return cartItemMapper.getCartItemList(username);
+    }
 
     //获取购物车中特定的商品
-    public CartItem getCartItem(String cartId, String itemId)
+    public CartItem getCartItem(String username, String itemId)
     {
-        return cartItemMapper.getCartItem(cartId, itemId);
+        return cartItemMapper.getCartItem(username, itemId);
     }
 
    //修改商品数量并更新购物车商品状态
-    public void updateCartItemQuantity(String cartId, String itemId, int quantity)
+    public void updateCartItemQuantity(String username, String itemId, int quantity)
     {
-        CartItem cartItem=cartItemMapper.getCartItem(cartId, itemId);
+        CartItem cartItem=cartItemMapper.getCartItem(username, itemId);
         if(quantity > 0)
         {
             if( cartItem== null)
             {
-                cartItemMapper.insertCartItem(cartId,itemId,quantity);
+                cartItemMapper.insertCartItem(username,itemId,quantity);
             }
             else
             {
-                cartItemMapper.updateQuantity(cartId,itemId,quantity);
+                cartItemMapper.updateQuantity(username,itemId,quantity);
             }
 
         }
         else if(cartItem != null)
         {
-            cartItemMapper.deleteCartItem(cartId, itemId);
+            cartItemMapper.deleteCartItem(username, itemId);
         }
     }
 
     //向购物车中添加商品
-    public void addItem(String cartId, String itemId)
+    public void addItem(String username, String itemId)
     {
-            CartItem cartItem = cartItemMapper.getCartItem(cartId, itemId);
+            CartItem cartItem = cartItemMapper.getCartItem(username, itemId);
             if(cartItem == null)
             {
-                cartItemMapper.insertCartItem(cartId,itemId,1);
+                cartItemMapper.insertCartItem(username,itemId,1);
             }
             else
             {
-                cartItemMapper.updateQuantity(cartId,itemId,cartItem.getQuantity()+1);
+                cartItemMapper.updateQuantity(username,itemId,cartItem.getQuantity()+1);
             }
 
     }
 
     //从购物车中删除商品
-    public void removeItem(String cartId,String itemId)
+    public void removeItem(String username,String itemId)
     {
-        cartItemMapper.deleteCartItem(cartId,itemId);
+        cartItemMapper.deleteCartItem(username,itemId);
     }
 
-
-
-    //修改商品库存数
-    public void updateItemInventory(String itemId, int quantity)
+    public void deleteCart(String username)
     {
-        itemMapper.updateQuantity(itemId,quantity);
+        cartItemMapper.deleteCartItemByCart(username);
     }
 
 }
