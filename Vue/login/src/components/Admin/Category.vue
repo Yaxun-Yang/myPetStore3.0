@@ -247,6 +247,7 @@
   export default {
     data() {
       return {
+        rotate: false,
         // 添加新product对话框的显示隐藏
         addProductDialogVisible: false,
         // 添加新item对话框的显示隐藏
@@ -269,7 +270,7 @@
                 Supplier: '1',
                 Status: 'P',
                 Attribute: 'Spotted Adult Female',
-                rotate: false,
+
               }, {
                 id: 'item2',
                 url: require("@/assets/ham.png"),
@@ -277,7 +278,7 @@
                 Supplier: '1',
                 Status: 'P',
                 Attribute: 'Spotted Adult Female',
-                rotate: false,
+
               }, {
                 id: 'item3',
                 url: require("@/assets/ham.png"),
@@ -285,7 +286,7 @@
                 Supplier: '1',
                 Status: 'P',
                 Attribute: 'Spotted Adult Female',
-                rotate: false,
+
               }, {
                 id: 'item4',
                 url: require("@/assets/ham.png"),
@@ -293,7 +294,7 @@
                 Supplier: '1',
                 Status: 'P',
                 Attribute: 'Spotted Adult Female',
-                rotate: false,
+
               }]
             }, {
               id: 'AV-CB-02',

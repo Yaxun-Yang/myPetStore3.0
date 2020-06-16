@@ -73,7 +73,9 @@
       var validateUsername = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('Please enter your username'));
-        }else if(value.length >)
+        }else if(value.length < 0 || value.length > 10){
+          callback(new Error('Between 3-10 characters'));
+        }
         else {
           if (this.methods.checkName(this.signUpForm.username) === false) {
             callback(new Error('The same username exists. Please Try again!'));
@@ -114,12 +116,6 @@
             {
               required: true,
               validator: validateUsername,
-              trigger: 'blur'
-            },
-            {
-              min: 3,
-              max: 10,
-              message: 'Between 3-10 characters',
               trigger: 'blur'
             }
           ],
