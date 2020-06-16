@@ -1,6 +1,7 @@
 package org.csu.mypetstore.interceptor;
 
 import com.alibaba.fastjson.JSONObject;
+import org.csu.mypetstore.template.ResponseTemplate;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,12 +11,11 @@ public class GlobalExceptionAdvice {
     @ResponseBody
     @ExceptionHandler(Exception.class)
     public Object handleException(Exception e) {
-        String msg = e.getMessage();
-        if (msg == null || msg.equals("")) {
-            msg = "服务器出错";
-        }
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("msg", msg);
-        return jsonObject;
+
+
+        return ResponseTemplate
+                .builder()
+                .status(500)
+                .statusText("服务器出错");
     }
 }

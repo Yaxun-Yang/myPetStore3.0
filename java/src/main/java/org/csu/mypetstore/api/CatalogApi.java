@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/catalog")
+@CrossOrigin
 public class CatalogApi {
     @Autowired
     private CatalogService catalogService;

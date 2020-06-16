@@ -17,12 +17,40 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/account")
+@CrossOrigin
 public class AccountApi {
 
     @Autowired
     private AccountService accountService;
 
-    //判断账户合法性，合法则跳转到主页否则跳转回到登录页面
+    @PostMapping("/user")
+    public ResponseTemplate userRegister(User user)
+    {
+        accountService.insertUser(user);
+
+        JSONObject data=new JSONObject();
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
+                .data(data)
+                .build();
+    }
+
+    @PostMapping("/admin")
+    public ResponseTemplate userRegister(Admin admin)
+    {
+        accountService.insertAdmin(admin);
+
+        JSONObject data=new JSONObject();
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
+                .data(data)
+                .build();
+    }
+
     @PostMapping("/token")
     public ResponseTemplate login(String username, String password, String verifyCode, HttpServletRequest httpServletRequest)
     {
@@ -54,7 +82,7 @@ public class AccountApi {
             {
                 String token = TokenService.getToken(username, password);
                data.put("token", token);
-               System.out.println(token);
+               //System.out.println(token);
                 data.put("admin", admin);
                 return ResponseTemplate.builder()
                         .status(207)
@@ -86,8 +114,8 @@ public class AccountApi {
 
     //用户退出，清除用户缓存，返回登录页面
     @UserLoginToken
-    @DeleteMapping("/token/{id}")
-    public ResponseTemplate logOut(@PathVariable String username, SessionStatus sessionStatus)
+    @DeleteMapping("/token")
+    public ResponseTemplate logOut( SessionStatus sessionStatus)
     {
             sessionStatus.setComplete();
         return ResponseTemplate.builder()
@@ -98,14 +126,14 @@ public class AccountApi {
     }
 
     @PostMapping("/verifyCode")
-    public void sendVerificationCode( String phoneNumber,  HttpServletRequest httpServletRequest)
+    public ResponseTemplate sendVerificationCode( String phone,  HttpServletRequest httpServletRequest)
     {
 
 
         String code =String.valueOf((int)(Math.random()*1000000));
         httpServletRequest.getSession().setAttribute("code",code);
         //此处仅为模拟短信发送
-        System.out.println("成功发送短信给"+phoneNumber+"，验证码为"+code);
+        System.out.println("成功发送短信给"+phone+"，验证码为"+code);
 
         //此处为真实的短信发送
 //        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "**********", "***********");
@@ -117,7 +145,7 @@ public class AccountApi {
 //        request.setVersion("2017-05-25");
 //        request.setAction("SendSms");
 //        request.putQueryParameter("RegionId", "cn-hangzhou");
-//        request.putQueryParameter("PhoneNumbers", phoneNumber);
+//        request.putQueryParameter("PhoneNumbers", phone);
 //        request.putQueryParameter("SignName", "MyPetStore");
 //        request.putQueryParameter("TemplateCode", "SMS_186968418");
 //        request.putQueryParameter("TemplateParam", "{\"code\":\""+code+"\"}");
@@ -129,6 +157,13 @@ public class AccountApi {
 //        } catch (ClientException e) {
 //            e.printStackTrace();
 //        }
+        JSONObject data=new JSONObject();
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
+                .data(data)
+                .build();
 
     }
 
