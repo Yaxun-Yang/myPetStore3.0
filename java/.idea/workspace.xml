@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e5ff389-2a7c-42de-988b-2d8191c6311a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Vue/how to run.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue/login/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vue/login/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Vue/login/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ProductMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/ProductMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/CatalogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/CatalogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CategoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ItemMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/ProductMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/CategoryMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/CategoryMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/ItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/ItemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/ProductMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/ProductMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/CatalogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/CatalogService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,8 +124,16 @@
       <workItem from="1592205964638" duration="1576000" />
       <workItem from="1592207739151" duration="953000" />
       <workItem from="1592208715808" duration="30806000" />
-      <workItem from="1592294830593" duration="15372000" />
+      <workItem from="1592294830593" duration="15633000" />
     </task>
+    <task id="LOCAL-00001" summary="catalog finish">
+      <created>1592314918474</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592314918474</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +141,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="catalog finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="catalog finish" />
   </component>
   <component name="WindowStateProjectService">
     <state x="175" y="0" key="#Custom_Plugin_Repositories" timestamp="1592204720716">
@@ -161,6 +165,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="350" y="53" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592246100435" />
+    <state x="212" y="0" key="CommitChangelistDialog2" timestamp="1592314915060">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="212" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592314915060" />
     <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1592250922255">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -201,6 +209,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592303639585" />
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592314937297">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592314937297" />
     <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1592208920214">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
