@@ -1,6 +1,8 @@
 package org.csu.mypetstore.api;
 
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.support.spring.annotation.ResponseJSONP;
+import net.sf.json.util.JSONUtils;
 import org.csu.mypetstore.annotation.UserLoginToken;
 import org.csu.mypetstore.domain.User;
 import org.csu.mypetstore.domain.Admin;
@@ -23,7 +25,7 @@ import javax.servlet.http.HttpSession;
     private AccountService accountService;
 
     @PostMapping("/user")
-    public ResponseTemplate userRegister(User user)
+    public ResponseTemplate userRegister(@RequestBody User user)
     {
         accountService.insertUser(user);
 
@@ -36,7 +38,7 @@ import javax.servlet.http.HttpSession;
 
     @PutMapping("/user")
     @UserLoginToken
-    public ResponseTemplate updateUser(User user)
+    public ResponseTemplate updateUser(@RequestBody User user)
     {
         accountService.updateUser(user);
 
@@ -47,7 +49,7 @@ import javax.servlet.http.HttpSession;
     }
 
     @PostMapping("/admin")
-    public ResponseTemplate userRegister(Admin admin)
+    public ResponseTemplate userRegister(@RequestBody Admin admin)
     {
         accountService.insertAdmin(admin);
 
@@ -59,7 +61,7 @@ import javax.servlet.http.HttpSession;
 
     @PutMapping("/admin")
     @UserLoginToken
-    public ResponseTemplate updateAdmin(Admin admin)
+    public ResponseTemplate updateAdmin(@RequestBody Admin admin)
     {
         accountService.updateAdmin(admin);
         return ResponseTemplate.builder()
@@ -69,8 +71,12 @@ import javax.servlet.http.HttpSession;
     }
 
     @PostMapping("/token")
-    public ResponseTemplate login(String username, String password, String verifyCode, HttpServletRequest httpServletRequest)
+    @ResponseBody
+    public ResponseTemplate login(@RequestBody JSONObject req, HttpServletRequest httpServletRequest)
     {
+        String username = req.getString("username");
+        String password = req.getString("password");
+        String verifyCode = req.getString("verifyCode");
         JSONObject data=new JSONObject();
 
 
@@ -143,10 +149,13 @@ import javax.servlet.http.HttpSession;
     }
 
     @PostMapping("/verifyCode")
-    public ResponseTemplate sendVerificationCode( String phone,  HttpServletRequest httpServletRequest)
+
+    public ResponseTemplate sendVerificationCode( @RequestBody JSONObject data, HttpServletRequest httpServletRequest)
     {
 
+        String phone = data.getString("phone");
 
+  //  System.out.println(JSONObject.toJSONString(httpServletRequest.getParameterMap()));
         //String code =String.valueOf((int)(Math.random()*1000000));
         String code = "188234";
         httpServletRequest.getSession().setAttribute("code",code);
