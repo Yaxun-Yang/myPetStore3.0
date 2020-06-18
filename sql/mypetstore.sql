@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 18/06/2020 15:36:22
+ Date: 18/06/2020 17:20:32
 */
 
 SET NAMES utf8mb4;
@@ -43,14 +43,14 @@ CREATE TABLE `cartitem`  (
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `itemid` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `quantity` int(10) NOT NULL,
-  `inStock` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`username`, `itemid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cartitem
 -- ----------------------------
-INSERT INTO `cartitem` VALUES ('wx', 'EST-1', 7, '');
+INSERT INTO `cartitem` VALUES ('EST-1', 'wx', 7);
+INSERT INTO `cartitem` VALUES ('wx', 'EST-1', 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -366,9 +366,9 @@ CREATE TABLE `orders`  (
   `orderdate` date NULL DEFAULT NULL,
   `totalCount` int(99) NULL DEFAULT NULL,
   `subTotal` float(10, 2) NULL DEFAULT NULL,
-  `paid` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `paid` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sendTo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `checkout` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `checkout` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`orderid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
