@@ -12,7 +12,13 @@
 
     <insert id="insertLineItem" parameterType="LineItem">
     INSERT INTO LINEITEM
-    VALUES (#{orderId}, #{itemId}, #{quantity}, #{price})
+    VALUES (#{orderId}, #{itemId}, #{quantity}, #{price}, #{totalPrice});
   </insert>
+
+    <select id="getSubTotal" resultType="float">
+    SELECT SUM(TOTALPRICE)
+    FROM LINEITEM
+    WHERE ORDERID = #{orderId};
+    </select>
 
 </mapper>

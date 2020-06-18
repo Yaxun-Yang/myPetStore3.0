@@ -38,8 +38,14 @@ import javax.servlet.http.HttpSession;
 
     @PutMapping("/user")
     @UserLoginToken
-    public ResponseTemplate updateUser(@RequestBody User user)
+    public ResponseTemplate updateUser(@RequestBody JSONObject req)
     {
+        User user = new User();
+        user.setUsername(req.getString("username"));
+        user.setPassword(req.getString("password"));
+        user.setAddress(req.getString("address"));
+        user.setEmail(req.getString("email"));
+        user.setPhone(req.getString("phone"));
         accountService.updateUser(user);
 
         return ResponseTemplate.builder()
@@ -49,8 +55,12 @@ import javax.servlet.http.HttpSession;
     }
 
     @PostMapping("/admin")
-    public ResponseTemplate userRegister(@RequestBody Admin admin)
+    public ResponseTemplate userRegister(@RequestBody JSONObject req)
     {
+        Admin admin = new Admin();
+        admin.setUsername(req.getString("username"));
+        admin.setPassword(req.getString("password"));
+        admin.setPhone(req.getString("phone"));
         accountService.insertAdmin(admin);
 
         return ResponseTemplate.builder()
@@ -61,8 +71,12 @@ import javax.servlet.http.HttpSession;
 
     @PutMapping("/admin")
     @UserLoginToken
-    public ResponseTemplate updateAdmin(@RequestBody Admin admin)
+    public ResponseTemplate updateAdmin(@RequestBody JSONObject req)
     {
+        Admin admin = new Admin();
+        admin.setUsername(req.getString("username"));
+        admin.setPassword(req.getString("password"));
+        admin.setPhone(req.getString("phone"));
         accountService.updateAdmin(admin);
         return ResponseTemplate.builder()
                 .status(200)

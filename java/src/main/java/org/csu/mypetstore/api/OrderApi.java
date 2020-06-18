@@ -1,6 +1,7 @@
 package org.csu.mypetstore.api;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.csu.mypetstore.domain.LineItem;
 import org.csu.mypetstore.domain.Order;
@@ -18,6 +19,43 @@ public class OrderApi {
 
     @Autowired
     OrderService orderService;
+
+    @PostMapping("/itemShowList/{username}")
+    public  ResponseTemplate creatOrder(@RequestBody JSONArray req, @PathVariable String username)
+    {
+        Order order = new Order();
+        orderService.insertOrder(order);
+        String orderId = orderService.getOrderId(username);
+        order.setOrderId(orderId);
+        order.setOrderDate(new Date());
+        order.setUsername(username);
+        order.setCheckout('N');
+        order.setPaid('N');
+        order.setTotalCount(req.size());
+        for(int i=0; i<req.size();i++)
+        {
+            JSONObject  itemShow = req.getJSONObject(i);
+            LineItem lineItem = new LineItem();
+            lineItem.setOrderId(orderId);
+            lineItem.setItemId(itemShow.getString("itemId"));
+            lineItem.setQuantity(itemShow.getInteger("quantity"));
+            lineItem.setTotalPrice(itemShow.getFloat("totalPrice"));
+            orderService.insertLineItem(lineItem);
+        }
+        order.setSubTotal(orderService.getSubTotal(orderId));
+        orderService.updateOder(order);
+
+
+        JSONObject data = new JSONObject();
+
+        data.put("orderId",orderId);
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
+                .data(data)
+                .build();
+    }
 
     @GetMapping("/orderList/{username}")
     public ResponseTemplate getOrderList(@PathVariable String username)
@@ -48,19 +86,6 @@ public class OrderApi {
                 .build();
     }
 
-    @PostMapping("/order/{username}")
-    public ResponseTemplate creatNewOrder(@PathVariable String username, Order order)
-    {
-        order.setOrderDate(new Date());
-        order.setPaid(false);
-        order.setUsername(username);
-        orderService.insertOrder(order);
-
-        return ResponseTemplate.builder()
-                .status(200)
-                .statusText("OK")
-                .build();
-    }
 
     @GetMapping("/orderId/{username}")
     public ResponseTemplate getOrderId(@PathVariable String username)
@@ -76,7 +101,7 @@ public class OrderApi {
     }
 
     @PutMapping("/paid/{orderId}")
-    public ResponseTemplate paid(@PathVariable int orderId)
+    public ResponseTemplate paid(@PathVariable String orderId)
     {
 
         orderService.paid(orderId);
@@ -86,29 +111,5 @@ public class OrderApi {
                 .build();
     }
 
-    @PostMapping("/lineItemList/{orderId}")
-    public ResponseTemplate insertLineItemList(@PathVariable int orderId, List<LineItem> lineItemList)
-    {
-        for(int i=0;i<lineItemList.size();i++)
-        {
-            lineItemList.get(i).setOrderId(orderId);
-            orderService.insertLineItem(lineItemList.get(i));
-        }
 
-        return ResponseTemplate.builder()
-                .status(200)
-                .statusText("OK")
-                .build();
-    }
-
-    @PostMapping("/lineItem/{orderId}")
-    public ResponseTemplate insertLineItem(@PathVariable int orderId, LineItem lineItem)
-    {
-        lineItem.setOrderId(orderId);
-        orderService.insertLineItem(lineItem);
-        return ResponseTemplate.builder()
-                .status(200)
-                .statusText("OK")
-                .build();
-    }
 }

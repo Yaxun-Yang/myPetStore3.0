@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.csu.mypetstore.persistence.OrderMapper">
-    <select id="getOrder" resultType="Order" parameterType="int">
+    <select id="getOrderByOrderId" resultType="Order" >
     SELECT *
     FROM ORDERS
-    WHERE ORDERID = #{value}
+    WHERE ORDERID = #{orderId}
   </select>
 
     <select id="gerRecentOrder" resultType="Order">
@@ -25,11 +25,12 @@
 
   <insert id="insertOrder" parameterType="order">
     INSERT INTO ORDERS
-    VALUES(#{username}, #{orderDate}, #{totalPrice}, #{paid}, #{sendTo});
+    (USERNAME, ORDERDATA, TOTALCOUNT, TOTALPRICE, PAID, SENDTO, CHECKOUT)
+    VALUES(#{username}, #{orderDate}, #{totalCount}, #{totalPrice}, #{paid}, #{sendTo},#{checkout});
   </insert>
 
 
-  <select id="getOrderId" resultType="int" >
+  <select id="getOrderId" resultType="String" >
     SELECT
         ORDERID
     FROM ORDERS
@@ -38,9 +39,15 @@
     DESC LIMIT 1
   </select>
 
-    <update id="updatePaid">
+    <update id="updateOrder">
         UPDATE ORDERS
-        SET PAID = #{paid}
+        SET PAID = #{paid},
+         CHECKOUT = #{checkout},
+         SENDTO = #{sendTo},
+         USERNAME = #{username},
+         ORDERDATA = #{orderDate},
+         TOTALCOUNT = #{totalCount},
+         SUBTOTAL = #{subTotal}
         WHERE ORDERID = #{orderId};
     </update>
 </mapper>

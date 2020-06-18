@@ -15,7 +15,11 @@ public interface OrderMapper {
 
     Order getRecentOrder(String username);
 
-    int getOrderId(String username);
+    String  getOrderId(String username);
 
-    void updatePaid (int orderId, boolean paid);
+    void updateOrder(Order order);
+
+    Order getOrderByOrderId(String orderId);
+
+
 }

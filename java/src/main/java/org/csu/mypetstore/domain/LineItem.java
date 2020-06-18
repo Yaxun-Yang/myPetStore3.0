@@ -11,10 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LineItem{
 
-    private int orderId;
+    private String  orderId;
     private int quantity;
     private String itemId;
-    private float price;
-    private Item item;
+    private float totalPrice;
 
 }

@@ -11,4 +11,6 @@ public interface LineItemMapper {
 
     void insertLineItem(LineItem lineItem);
 
+    float getSubTotal(String orderId);
+
 }

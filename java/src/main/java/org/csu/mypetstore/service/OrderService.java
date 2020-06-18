@@ -35,27 +35,39 @@ public class OrderService {
         return orderMapper.getOrdersByUsername(username);
     }
 
-    public int getOrderId(String username)
+    public String getOrderId(String username)
     {
         return orderMapper.getOrderId(username);
     }
 
-    public void paid(int orderId )
+    public void paid(String orderId)
     {
-        orderMapper.updatePaid(orderId, true);
+        Order order  =orderMapper.getOrderByOrderId(orderId);
+        order.setPaid('Y');
+        orderMapper.updateOrder(order);
     }
 
-    public void insertLineItemList (List <LineItem> lineItemList)
+    public void updateOder(Order order)
     {
-        for(int i=0; i<lineItemList.size();i++)
-        {
-            lineItemMapper.insertLineItem(lineItemList.get(i));
-        }
+        orderMapper.updateOrder(order);
     }
+
+    public void checkout(String orderId)
+    {
+        Order order = orderMapper.getOrderByOrderId(orderId);
+        order.setCheckout('Y');
+        orderMapper.updateOrder(order);
+    }
+
 
     public void insertLineItem(LineItem lineItem)
     {
         lineItemMapper.insertLineItem(lineItem);
+    }
+
+    public float getSubTotal(String orderId)
+    {
+        return lineItemMapper.getSubTotal(orderId);
     }
 
 }

@@ -15,11 +15,13 @@ import java.util.List;
 public class Order {
 
 
-    private int orderId;
+    private String orderId;
     private String username;
     private Date orderDate;
-    private float totalPrice;
-    private boolean paid;
+    private float subTotal;
+    private int totalCount;
+    private char paid;
     private String sendTo;
+    private char checkout;
 
 }

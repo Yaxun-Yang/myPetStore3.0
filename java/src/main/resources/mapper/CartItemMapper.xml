@@ -17,7 +17,7 @@
     </select>
     <insert id="insertCartItem">
         INSERT INTO CARTITEM
-        VALUES (#{username}, #{itemId}, #{quantity});
+        VALUES (#{username}, #{itemId}, #{quantity}, #{inStock});
 
     </insert>
 

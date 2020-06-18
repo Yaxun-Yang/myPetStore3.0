@@ -16,8 +16,6 @@ public class CartService {
     @Autowired
     private CartItemMapper cartItemMapper;
 
-    @Autowired
-    private ItemMapper itemMapper;
 
     public List<CartItem> getCart(String username)
     {
