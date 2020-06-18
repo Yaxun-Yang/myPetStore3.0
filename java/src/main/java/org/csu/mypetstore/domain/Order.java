@@ -20,8 +20,8 @@ public class Order {
     private Date orderDate;
     private float subTotal;
     private int totalCount;
-    private char paid;
+    private String paid;
     private String sendTo;
-    private char checkout;
+    private String checkout;
 
 }

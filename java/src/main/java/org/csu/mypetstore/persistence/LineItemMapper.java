@@ -7,7 +7,7 @@ import java.util.List;
 
 @Repository
 public interface LineItemMapper {
-    List<LineItem> getLineItemsByOrderId(int orderId);
+    List<LineItem> getLineItemsByOrderId(String orderId);
 
     void insertLineItem(LineItem lineItem);
 

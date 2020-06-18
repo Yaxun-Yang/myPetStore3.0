@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.csu.mypetstore.persistence.LineItemMapper">
 
-    <select id="getLineItemsByOrderId" parameterType="int" resultType="LineItem">
+    <select id="getLineItemsByOrderId" resultType="LineItem">
     SELECT *
     FROM LINEITEM
     WHERE ORDERID = #{orderId}
@@ -12,7 +12,13 @@
 
     <insert id="insertLineItem" parameterType="LineItem">
     INSERT INTO LINEITEM
-    VALUES (#{orderId}, #{itemId}, #{quantity}, #{price})
+    VALUES (#{orderId}, #{itemId}, #{quantity}, #{price}, #{totalPrice});
   </insert>
+
+    <select id="getSubTotal" resultType="float">
+    SELECT SUM(TOTALPRICE)
+    FROM LINEITEM
+    WHERE ORDERID = #{orderId};
+    </select>
 
 </mapper>

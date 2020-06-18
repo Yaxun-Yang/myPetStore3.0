@@ -86,7 +86,7 @@ import javax.servlet.http.HttpSession;
 
     @PostMapping("/token")
     @ResponseBody
-    public ResponseTemplate login(@RequestBody JSONObject req, HttpServletRequest httpServletRequest)
+    public ResponseTemplate login(@RequestBody  JSONObject req,  HttpServletRequest httpServletRequest)
     {
         String username = req.getString("username");
         String password = req.getString("password");

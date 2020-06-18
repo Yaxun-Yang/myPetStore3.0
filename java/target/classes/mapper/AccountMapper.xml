@@ -21,26 +21,28 @@
             PASSWORD = #{password},
             EMAIL = #{email},
             ADDRESS = #{address},
-            PHONE = #{phone}
+            PHONE = #{phone},
+            URL = #{url}
         WHERE USERNAME = #{username};
     </update>
 
     <insert id="insertUser" >
         INSERT INTO USERS
-        VALUES(#{username}, #{password}, #{email}, #{address}, #{phone});
+        VALUES(#{username}, #{password}, #{email}, #{address}, #{phone}, #{url});
     </insert>
 
 
     <update id="updateAdmin" >
         UPDATE ADMIN SET
             PASSWORD = #{password},
-            PHONE = #{phone}
+            PHONE = #{phone},
+            URL = #{url}
         WHERE USERNAME = #{username};
     </update>
 
     <insert id="insertAdmin" >
         INSERT INTO ADMIN
-        VALUES (#{password}, #{username}, #{phone});
+        VALUES (#{password}, #{username}, #{phone}, #{url});
     </insert>
 
     <select id="getAdminByUsernameAndPassword" resultType="Admin">

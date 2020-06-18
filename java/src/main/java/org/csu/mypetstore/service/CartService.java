@@ -29,34 +29,36 @@ public class CartService {
     }
 
    //修改商品数量并更新购物车商品状态
-    public void updateCartItemQuantity(String username, String itemId, int quantity)
+    public void updateCartItemQuantity(CartItem cartItem)
     {
-        CartItem cartItem=cartItemMapper.getCartItem(username, itemId);
-        if(quantity > 0)
+        CartItem _cartItem=cartItemMapper.getCartItem(cartItem.getUsername(), cartItem.getItemId());
+        if(cartItem.getQuantity() > 0)
         {
             if( cartItem== null)
             {
-                cartItemMapper.insertCartItem(username,itemId,quantity);
+                cartItemMapper.insertCartItem(cartItem);
             }
             else
             {
-                cartItemMapper.updateQuantity(username,itemId,quantity);
+                cartItemMapper.updateQuantity(cartItem.getUsername(), cartItem.getItemId(), cartItem.getQuantity());
             }
 
         }
         else if(cartItem != null)
         {
-            cartItemMapper.deleteCartItem(username, itemId);
+            cartItemMapper.deleteCartItem(cartItem.getUsername(), cartItem.getItemId());
         }
     }
 
     //向购物车中添加商品
     public void addItem(String username, String itemId)
     {
+        System.out.println(username +" "+ itemId);
             CartItem cartItem = cartItemMapper.getCartItem(username, itemId);
+          //  System.out.println(cartItem);
             if(cartItem == null)
             {
-                cartItemMapper.insertCartItem(username,itemId,1);
+                cartItemMapper.insertCartItem(new CartItem(username,itemId,1));
             }
             else
             {
@@ -75,5 +77,6 @@ public class CartService {
     {
         cartItemMapper.deleteCartItemByCart(username);
     }
+
 
 }

@@ -38,7 +38,7 @@ public class CartApi {
             itemShow.put("itemId", item.getItemId());
             itemShow.put("productId", item.getProductId());
             itemShow.put("text", item.getAttribute());
-            itemShow.put("inStock" , cartItem.getInStock());
+            itemShow.put("inStock" , item.getQuantity()>0?"Y":"N");
             itemShow.put("quantity", cartItem.getQuantity());
             itemShow.put("price", item.getPrice());
             itemShow.put("totalCost", item.getPrice()*cartItem.getQuantity());
@@ -65,9 +65,10 @@ public class CartApi {
     }
 
     @PutMapping("/cartItem/{username}/{itemId}/{quantity}")
+    @UserLoginToken
     public ResponseTemplate updateCartItem(@PathVariable String username, @PathVariable String itemId, @PathVariable int quantity)
     {
-        cartService.updateCartItemQuantity(username, itemId, quantity);
+        cartService.updateCartItemQuantity(new CartItem(username, itemId, quantity));
 
         return ResponseTemplate.builder()
                 .status(200)
@@ -75,7 +76,8 @@ public class CartApi {
                 .build();
     }
 
-    @DeleteMapping ("/cartItem/{username}")
+    @DeleteMapping ("/cartItemList/{username}")
+    @UserLoginToken
     public ResponseTemplate deleteCart(@PathVariable String username)
     {
         cartService.deleteCart(username);
@@ -86,6 +88,7 @@ public class CartApi {
     }
 
     @DeleteMapping("/cartItem/{username}/{itemId}")
+    @UserLoginToken
     public ResponseTemplate deleteCartItem(@PathVariable String username, @PathVariable String itemId)
     {
         cartService.removeItem(username, itemId);
@@ -95,28 +98,6 @@ public class CartApi {
                 .build();
     }
 
-    @GetMapping("/cartItem/{username}")
-    public ResponseTemplate getCart(@PathVariable String username)
-    {
-        JSONObject data = new JSONObject();
-        data.put("cartItemList",cartService.getCart(username));
-        return ResponseTemplate.builder()
-                .status(200)
-                .statusText("OK")
-                .data(data)
-                .build();
-    }
 
-    @GetMapping("/cartItem/{username}/{itemId}")
-    public ResponseTemplate getCartItem(@PathVariable String username, @PathVariable String itemId)
-    {
-        JSONObject data = new JSONObject();
-        data.put("cartItem",cartService.getCartItem(username, itemId));
-        return ResponseTemplate.builder()
-                .status(200)
-                .statusText("OK")
-                .data(data)
-                .build();
-    }
 
 }

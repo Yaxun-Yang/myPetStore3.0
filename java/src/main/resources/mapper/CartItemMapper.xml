@@ -17,7 +17,7 @@
     </select>
     <insert id="insertCartItem">
         INSERT INTO CARTITEM
-        VALUES (#{username}, #{itemId}, #{quantity}, #{inStock});
+        VALUES (#{username}, #{itemId}, #{quantity});
 
     </insert>
 
@@ -38,6 +38,7 @@
         SET
             QUANTITY = #{quantity}
         WHERE USERNAME = #{username}
-         AND   ITEMID = #{itemId}
+         AND   ITEMID = #{itemId};
     </update>
+
 </mapper>

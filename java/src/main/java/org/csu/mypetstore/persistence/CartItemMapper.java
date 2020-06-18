@@ -13,12 +13,13 @@ public interface CartItemMapper {
 
     CartItem getCartItem(String username, String itemId);
 
-    void insertCartItem(String username,String itemId, int quantity);
+    void insertCartItem(CartItem cartItem);
 
     void deleteCartItem(String username, String itemId);
 
     void deleteCartItemByCart( String username);
 
     void updateQuantity(String username,  String itemId, int quantity);
+
 
 }

@@ -29,8 +29,8 @@ public class OrderApi {
         order.setOrderId(orderId);
         order.setOrderDate(new Date());
         order.setUsername(username);
-        order.setCheckout('N');
-        order.setPaid('N');
+        order.setCheckout("N");
+        order.setPaid("N");
         order.setTotalCount(req.size());
         for(int i=0; i<req.size();i++)
         {
@@ -111,5 +111,15 @@ public class OrderApi {
                 .build();
     }
 
+    @PutMapping("/checkout/{orderId}")
+    public ResponseTemplate checkout(@PathVariable String orderId)
+    {
+        orderService.checkout(orderId);
+
+        return ResponseTemplate.builder()
+                .status(200)
+                .statusText("OK")
+                .build();
+    }
 
 }

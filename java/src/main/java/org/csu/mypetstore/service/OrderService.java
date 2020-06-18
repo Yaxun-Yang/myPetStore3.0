@@ -1,8 +1,10 @@
 package org.csu.mypetstore.service;
 
+import org.csu.mypetstore.domain.CartItem;
 import org.csu.mypetstore.domain.Item;
 import org.csu.mypetstore.domain.LineItem;
 import org.csu.mypetstore.domain.Order;
+import org.csu.mypetstore.persistence.CartItemMapper;
 import org.csu.mypetstore.persistence.ItemMapper;
 import org.csu.mypetstore.persistence.LineItemMapper;
 import org.csu.mypetstore.persistence.OrderMapper;
@@ -20,6 +22,12 @@ public class OrderService {
 
     @Autowired
     private LineItemMapper lineItemMapper;
+
+    @Autowired
+    private CartItemMapper cartItemMapper;
+
+    @Autowired
+    private ItemMapper itemMapper;
 
     public void insertOrder(Order order) {
         orderMapper.insertOrder(order);
@@ -43,7 +51,7 @@ public class OrderService {
     public void paid(String orderId)
     {
         Order order  =orderMapper.getOrderByOrderId(orderId);
-        order.setPaid('Y');
+        order.setPaid("Y");
         orderMapper.updateOrder(order);
     }
 
@@ -52,11 +60,22 @@ public class OrderService {
         orderMapper.updateOrder(order);
     }
 
+    @Transactional
     public void checkout(String orderId)
     {
         Order order = orderMapper.getOrderByOrderId(orderId);
-        order.setCheckout('Y');
+        order.setCheckout("Y");
         orderMapper.updateOrder(order);
+
+        List<LineItem> lineItemList = lineItemMapper.getLineItemsByOrderId(orderId);
+        for(int i=0; i<lineItemList.size(); i++)
+        {
+            String itemId =lineItemList.get(i).getItemId();
+            cartItemMapper.deleteCartItem(order.getUsername(), itemId);
+            itemMapper.updateQuantity(itemId, itemMapper.getQuantity(itemId)-lineItemList.get(i).getQuantity());
+        }
+
+
     }
 
 
