@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 17/06/2020 04:46:28
+ Date: 18/06/2020 15:36:22
 */
 
 SET NAMES utf8mb4;
@@ -25,14 +25,15 @@ CREATE TABLE `admin`  (
   `username` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`username`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES ('admin', 'admin', '111');
-INSERT INTO `admin` VALUES ('yyx', 'yyx', '111');
+INSERT INTO `admin` VALUES ('admin', 'admin', '111', NULL);
+INSERT INTO `admin` VALUES ('yyx', 'yyx', '111', NULL);
 
 -- ----------------------------
 -- Table structure for cartitem
@@ -42,13 +43,14 @@ CREATE TABLE `cartitem`  (
   `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `itemid` varchar(10) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `quantity` int(10) NOT NULL,
+  `inStock` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`username`, `itemid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cartitem
 -- ----------------------------
-INSERT INTO `cartitem` VALUES ('wx', 'EST-1', 7);
+INSERT INTO `cartitem` VALUES ('wx', 'EST-1', 7, '');
 
 -- ----------------------------
 -- Table structure for category
@@ -123,11 +125,10 @@ INSERT INTO `item` VALUES ('EST-9', 'K9-DL-01', NULL, 12.00, 'Spotless Male Pupp
 DROP TABLE IF EXISTS `lineitem`;
 CREATE TABLE `lineitem`  (
   `orderid` int(11) NOT NULL,
-  `linenum` int(11) NOT NULL,
   `itemid` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `quantity` int(11) NOT NULL,
-  `price` float(10, 2) NOT NULL,
-  PRIMARY KEY (`orderid`, `linenum`) USING BTREE
+  `totalPrice` float(10, 2) NOT NULL,
+  PRIMARY KEY (`orderid`, `itemid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -360,39 +361,16 @@ INSERT INTO `log` VALUES (220, 'j2ee', '2020-06-04 20:09:40', 'Add Item', 'EST-1
 -- ----------------------------
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders`  (
-  `orderid` int(11) NOT NULL AUTO_INCREMENT,
+  `orderid` int(99) NOT NULL AUTO_INCREMENT,
   `username` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `orderdate` date NULL DEFAULT NULL,
-  `totalprice` float(10, 2) NULL DEFAULT NULL,
-  `paid` int(2) NULL DEFAULT NULL,
+  `totalCount` int(99) NULL DEFAULT NULL,
+  `subTotal` float(10, 2) NULL DEFAULT NULL,
+  `paid` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sendTo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `checkout` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`orderid`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orders
--- ----------------------------
-INSERT INTO `orders` VALUES (999, 'j2ee', '2019-10-21', 19.20, NULL, NULL);
-INSERT INTO `orders` VALUES (1000, 'j2ee', '2019-10-27', 39.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1001, 'j2ee', '2019-10-27', 23.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1002, 'j2ee', '2019-10-27', 23.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1003, 'j2ee', '2019-10-27', 15.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1004, 'j2ee', '2019-10-28', 276.99, NULL, NULL);
-INSERT INTO `orders` VALUES (1005, 'j2ee', '2019-10-28', 276.99, NULL, NULL);
-INSERT INTO `orders` VALUES (1006, 'j2ee', '2019-10-29', 276.99, NULL, NULL);
-INSERT INTO `orders` VALUES (1007, 'j2ee', '2019-10-29', 276.99, NULL, NULL);
-INSERT INTO `orders` VALUES (1008, 'j2ee', '2019-10-29', 276.99, NULL, NULL);
-INSERT INTO `orders` VALUES (1009, 'j2ee', '2019-10-30', 963.87, NULL, NULL);
-INSERT INTO `orders` VALUES (1010, 'j2ee', '2019-10-30', 302.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1011, 'j2ee', '2019-10-30', 18.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1012, 'j2ee', '2019-10-31', 58.50, NULL, NULL);
-INSERT INTO `orders` VALUES (1013, 'j2ee', '2019-11-01', 621.16, NULL, NULL);
-INSERT INTO `orders` VALUES (1014, 'j2ee', '2019-11-29', 0.00, NULL, NULL);
-INSERT INTO `orders` VALUES (1015, 'j2ee', '2019-11-29', 0.00, NULL, NULL);
-INSERT INTO `orders` VALUES (1016, 'j2ee', '2020-03-29', 0.00, NULL, NULL);
-INSERT INTO `orders` VALUES (1017, 'j2ee', '2020-03-29', 23.79, NULL, NULL);
-INSERT INTO `orders` VALUES (1018, 'j2ee', '2020-06-04', 360.00, NULL, NULL);
-INSERT INTO `orders` VALUES (1019, 'j2ee', '2020-06-04', 380.00, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for product
@@ -460,16 +438,18 @@ CREATE TABLE `users`  (
   `email` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `address` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `phone` varchar(80) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`username`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('a', 'a', 'a', 'a', 'a');
-INSERT INTO `users` VALUES ('ACID', 'ACID', 'acid@yourdomain.com', '901 San Antonio Road', '555-555-5555');
-INSERT INTO `users` VALUES ('j2ee', 'j2ee', 'j2ee@yourdomain.com', '902 San Antonio Road', '322-513-1654');
-INSERT INTO `users` VALUES ('wx', 'wx', 'wx@csu.edu.cn', 'csu', '111');
-INSERT INTO `users` VALUES ('xyz', 'xyz', 'xyz@csu.edu.cn', 'a', 'a');
+INSERT INTO `users` VALUES ('a', 'a', 'a', 'a', 'a', NULL);
+INSERT INTO `users` VALUES ('abcdef', 'abcdef', 'abcdef@qq.com', 'abcdef', '12345678909', NULL);
+INSERT INTO `users` VALUES ('ACID', 'ACID', 'acid@yourdomain.com', '901 San Antonio Road', '555-555-5555', NULL);
+INSERT INTO `users` VALUES ('j2ee', 'j2ee', 'j2ee@yourdomain.com', '902 San Antonio Road', '322-513-1654', NULL);
+INSERT INTO `users` VALUES ('wx', 'wx', 'wx@csu.edu.cn', 'csu', '111', NULL);
+INSERT INTO `users` VALUES ('xyz', 'xyz', 'xyz@csu.edu.cn', 'a', 'a', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
