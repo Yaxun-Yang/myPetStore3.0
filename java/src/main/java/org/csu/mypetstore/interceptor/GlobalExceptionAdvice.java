@@ -14,6 +14,7 @@ public class GlobalExceptionAdvice {
 
         String msg = e.getMessage();
         if (msg == null || msg.equals("")) {
+            e.printStackTrace();
             return ResponseTemplate
                     .builder()
                     .status(500)
@@ -21,6 +22,7 @@ public class GlobalExceptionAdvice {
                     .build();
         }
         else {
+            e.printStackTrace();
             return ResponseTemplate
                     .builder()
                     .status(401)

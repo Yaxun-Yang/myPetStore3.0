@@ -23,11 +23,15 @@ public interface AccountMapper {
 
     List<User> getUserList();
 
+    String getUserPassword(String username);
+
     Admin getAdminByUsername(String username);
 
     Admin getAdminByUsernameAndPassword(String username, String password);
 
     List<Admin> getAdminList();
+
+    String getAdminPassword(String username);
 
     void deleteUser(String username);
 

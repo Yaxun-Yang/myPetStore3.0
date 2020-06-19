@@ -23,5 +23,6 @@ public class Order {
     private String paid;
     private String sendTo;
     private String checkout;
+    private String dispatched;
 
 }

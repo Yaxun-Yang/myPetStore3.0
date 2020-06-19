@@ -47,6 +47,7 @@ public class AccountService {
     public void updateUser(User user){
         accountMapper.updateUser(user);
     }
+
     public User getUser(String username){
         return accountMapper.getUserByUsername(username);
     }
@@ -58,6 +59,11 @@ public class AccountService {
     public List<User> getUserList()
     {
         return accountMapper.getUserList();
+    }
+
+    public String getUserPassword(String username)
+    {
+        return accountMapper.getUserPassword(username);
     }
 
     public Admin getAdmin(String username, String password)
@@ -72,6 +78,11 @@ public class AccountService {
     public List<Admin> getAdminList()
     {
         return accountMapper.getAdminList();
+    }
+
+    public String getAdminPassword(String username)
+    {
+        return accountMapper.getAdminPassword(username);
     }
 
     @Transactional

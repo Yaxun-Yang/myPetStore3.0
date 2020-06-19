@@ -1,5 +1,6 @@
 package org.csu.mypetstore.service;
 
+import com.qiniu.cdn.CdnManager;
 import com.qiniu.common.QiniuException;
 import com.qiniu.common.Zone;
 import com.qiniu.http.Response;
@@ -8,20 +9,14 @@ import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.util.Auth;
 
-import com.qiniu.util.Base64;
+
 import com.qiniu.util.StringMap;
-import com.qiniu.util.UrlSafeBase64;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
+
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
-
-@Service
+//上传图片到七牛云
 public class PhotoService {
 
     //密钥
@@ -32,7 +27,11 @@ public class PhotoService {
     static String bucketName = "tomsdog";
     final static public String domain="http://qbyy9dziv.bkt.clouddn.com/";
 
-
+    public static void refresh(String url) throws QiniuException {
+        String[] urls = {url};
+        CdnManager c = new CdnManager(auth);
+         c.refreshUrls(urls);
+    }
 
     //上传
     public static void uploadImage(String fileLoad, String key)  {

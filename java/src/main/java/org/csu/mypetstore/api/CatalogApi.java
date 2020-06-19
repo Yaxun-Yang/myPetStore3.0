@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import com.qiniu.common.QiniuException;
 import org.csu.mypetstore.domain.Category;
 
 import org.csu.mypetstore.domain.Item;
@@ -170,7 +171,7 @@ public class CatalogApi {
     }
 
     @PutMapping("/item")
-    public ResponseTemplate updateItem(@RequestBody JSONObject req)
+    public ResponseTemplate updateItem(@RequestBody JSONObject req)throws QiniuException
     {
         Item item = new Item();
         item.setItemId(req.getString("itemId"));
@@ -187,6 +188,7 @@ public class CatalogApi {
             String fileName =req.getString("itemId")+fileType;
             PhotoService.uploadImage(file, fileName);
             item.setUrl(PhotoService.domain+fileName);
+            PhotoService.refresh(item.getUrl());
         }
 
         catalogService.updateItem(item);

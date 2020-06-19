@@ -3,12 +3,11 @@ package org.csu.mypetstore.api;
 
 import com.alibaba.fastjson.JSONObject;
 
+import com.qiniu.common.QiniuException;
 import org.csu.mypetstore.annotation.UserLoginToken;
 import org.csu.mypetstore.domain.User;
 import org.csu.mypetstore.domain.Admin;
-import org.csu.mypetstore.service.AccountService;
-import org.csu.mypetstore.service.PhotoService;
-import org.csu.mypetstore.service.TokenService;
+import org.csu.mypetstore.service.*;
 import org.csu.mypetstore.template.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,19 +28,20 @@ public class AccountApi {
 
 
     @PostMapping("/user")
-    public ResponseTemplate userRegister (@RequestBody JSONObject req)throws Exception
+    public ResponseTemplate userRegister (@RequestBody JSONObject req)
     {
         User user = new User();
         user.setPhone(req.getString("phone"));
         user.setEmail(req.getString("email"));
         user.setAddress(req.getString("address"));
-        user.setPassword(req.getString("password"));
+        user.setPassword(MD5Service.getMD5(req.getString("password")));
         user.setUsername(req.getString("username"));
         String file = req.getString("url");
         String fileType = file.substring(file.lastIndexOf(".") , file.length()).toLowerCase();
         String fileName =req.getString("username")+fileType;
         PhotoService.uploadImage(file, fileName);
         user.setUrl(PhotoService.domain+fileName);
+
         accountService.insertUser(user);
 
 
@@ -56,7 +56,7 @@ public class AccountApi {
     {
         Admin admin = new Admin();
         admin.setUsername(req.getString("username"));
-        admin.setPassword(req.getString("password"));
+        admin.setPassword(MD5Service.getMD5(req.getString("password")));
         admin.setPhone(req.getString("phone"));
         String file = req.getString("url");
         String fileType = file.substring(file.lastIndexOf(".")).toLowerCase();
@@ -77,7 +77,7 @@ public class AccountApi {
     public ResponseTemplate login(@RequestBody  JSONObject req,  HttpServletRequest httpServletRequest)
     {
         String username = req.getString("username");
-        String password = req.getString("password");
+        String password = MD5Service.getMD5(req.getString("password"));
         String verifyCode = req.getString("verifyCode");
         JSONObject data=new JSONObject();
 
@@ -138,42 +138,18 @@ public class AccountApi {
     }
 
     @PostMapping("/verifyCode")
-
-    public ResponseTemplate sendVerificationCode( @RequestBody JSONObject data, HttpServletRequest httpServletRequest)
+    public ResponseTemplate sendVerificationCode( @RequestBody JSONObject req,  HttpServletRequest httpServletRequest)
     {
 
-        String phone = data.getString("phone");
+        String phone = req.getString("phone");
 
-        //  System.out.println(JSONObject.toJSONString(httpServletRequest.getParameterMap()));
-        //String code =String.valueOf((int)(Math.random()*1000000));
-        String code = "188234";
-        httpServletRequest.getSession().setAttribute("code",code);
         //此处仅为模拟短信发送
+        String code = "188234";
         System.out.println("成功发送短信给"+phone+"，验证码为"+code);
-
         //此处为真实的短信发送
-//        DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou", "**********", "***********");
-//        IAcsClient client = new DefaultAcsClient(profile);
-//
-//        CommonRequest request = new CommonRequest();
-//        request.setMethod(MethodType.POST);
-//        request.setDomain("dysmsapi.aliyuncs.com");
-//        request.setVersion("2017-05-25");
-//        request.setAction("SendSms");
-//        request.putQueryParameter("RegionId", "cn-hangzhou");
-//        request.putQueryParameter("PhoneNumbers", phone);
-//        request.putQueryParameter("SignName", "MyPetStore");
-//        request.putQueryParameter("TemplateCode", "SMS_186968418");
-//        request.putQueryParameter("TemplateParam", "{\"code\":\""+code+"\"}");
-//        try {
-//            CommonResponse response = client.getCommonResponse(request);
-//            System.out.println(response.getData());
-//        } catch (ServerException e) {
-//            e.printStackTrace();
-//        } catch (ClientException e) {
-//            e.printStackTrace();
-//        }
+       //String code= SmsService.sendSms(phone);
 
+        httpServletRequest.getSession().setAttribute("code",code);
         return ResponseTemplate.builder()
                 .status(200)
                 .statusText("OK")
@@ -184,11 +160,14 @@ public class AccountApi {
 
     @PutMapping("/user")
     @UserLoginToken
-    public ResponseTemplate updateUser(@RequestBody JSONObject req)
+    public ResponseTemplate updateUser (@RequestBody JSONObject req)throws QiniuException
     {
         User user = new User();
         user.setUsername(req.getString("username"));
-        user.setPassword(req.getString("password"));
+        String password= req.getString("password");
+        if(!password.equals(accountService.getUserPassword(user.getUsername())))
+            password = MD5Service.getMD5(password);
+        user.setPassword(password);
         user.setAddress(req.getString("address"));
         user.setEmail(req.getString("email"));
         user.setPhone(req.getString("phone"));
@@ -201,6 +180,7 @@ public class AccountApi {
             String fileName =req.getString("username")+fileType;
             PhotoService.uploadImage(file, fileName);
             user.setUrl(PhotoService.domain+fileName);
+            PhotoService.refresh(user.getUrl());
         }
         accountService.updateUser(user);
 
@@ -214,11 +194,14 @@ public class AccountApi {
 
     @PutMapping("/admin")
     @UserLoginToken
-    public ResponseTemplate updateAdmin(@RequestBody JSONObject req)
+    public ResponseTemplate updateAdmin(@RequestBody JSONObject req)throws QiniuException
     {
         Admin admin = new Admin();
         admin.setUsername(req.getString("username"));
-        admin.setPassword(req.getString("password"));
+        String password= req.getString("password");
+        if(!password.equals(accountService.getAdminPassword(admin.getUsername())))
+            password =MD5Service.getMD5(password);
+        admin.setPassword(password);
         admin.setPhone(req.getString("phone"));
         String file = req.getString("url");
         if(file.substring(0,file.indexOf(":")).equals("http"))
@@ -229,6 +212,7 @@ public class AccountApi {
             String fileName =req.getString("username")+fileType;
             PhotoService.uploadImage(file, fileName);
             admin.setUrl(PhotoService.domain+fileName);
+            PhotoService.refresh(admin.getUrl());
         }
         accountService.updateAdmin(admin);
         return ResponseTemplate.builder()

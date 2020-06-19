@@ -125,13 +125,22 @@
             <artifactId>qiniu-java-sdk</artifactId>
             <version>[7.2.0, 7.2.99]</version>
         </dependency>
-
-<!--        okhttp3-->
+<!--    支付宝-->
+        <!-- https://mvnrepository.com/artifact/com.alipay.sdk/alipay-sdk-java -->
         <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>3.3.0</version>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.10.29.ALL</version>
         </dependency>
+
+
+
+<!--&lt;!&ndash;        okhttp3&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.squareup.okhttp3</groupId>-->
+<!--            <artifactId>okhttp</artifactId>-->
+<!--            <version>3.3.0</version>-->
+<!--        </dependency>-->
         <!--        Valid 注解-->
 <!--        <dependency>-->
 <!--            <groupId>javax.validation</groupId>-->

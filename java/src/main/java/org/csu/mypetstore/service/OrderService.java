@@ -33,6 +33,11 @@ public class OrderService {
         orderMapper.insertOrder(order);
     }
 
+    public void insertLineItem(LineItem lineItem)
+    {
+        lineItemMapper.insertLineItem(lineItem);
+    }
+
     public Order getOrder(String orderId){
         return orderMapper.getOrderByOrderId(orderId);
     }
@@ -57,16 +62,14 @@ public class OrderService {
         return  lineItemMapper.getLineItemsByOrderId(orderId);
     }
 
-    public void paid(String orderId)
+    public int getTotalCount(String orderId)
     {
-        Order order  =orderMapper.getOrderByOrderId(orderId);
-        order.setPaid("Y");
-        orderMapper.updateOrder(order);
+        return lineItemMapper.getTotalCount(orderId);
     }
 
-    public void updateOder(Order order)
+    public float getSubTotal(String orderId)
     {
-        orderMapper.updateOrder(order);
+        return lineItemMapper.getSubTotal(orderId);
     }
 
     @Transactional
@@ -87,15 +90,23 @@ public class OrderService {
 
     }
 
-
-    public void insertLineItem(LineItem lineItem)
+    public void paid(String orderId)
     {
-        lineItemMapper.insertLineItem(lineItem);
+        Order order  =orderMapper.getOrderByOrderId(orderId);
+        order.setPaid("Y");
+        orderMapper.updateOrder(order);
     }
 
-    public float getSubTotal(String orderId)
+    public void dispatched(String orderId)
     {
-        return lineItemMapper.getSubTotal(orderId);
+        Order order = orderMapper.getOrderByOrderId(orderId);
+        order.setDispatched("Y");
+        orderMapper.updateOrder(order);
+    }
+
+    public void updateOder(Order order)
+    {
+        orderMapper.updateOrder(order);
     }
 
     @Transactional

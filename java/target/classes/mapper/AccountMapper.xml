@@ -10,7 +10,7 @@
 
     <insert id="insertAdmin" >
         INSERT INTO ADMIN
-        VALUES (#{password}, #{username}, #{phone}, #{url});
+        VALUES (#{username}, #{password}, #{phone}, #{url});
     </insert>
 
     <update id="updateUser" >
@@ -50,6 +50,12 @@
        AND PASSWORD = #{password};
     </select>
 
+    <select id="getUserPassword" resultType="String">
+        SELECT PASSWORD
+        FROM USERS
+        WHERE USERNAME = #{username};
+    </select>
+
     <select id="getAdminList" resultType="Admin">
         SELECT *
         FROM ADMIN;
@@ -66,6 +72,12 @@
         FROM  ADMIN
         WHERE USERNAME = #{username}
         AND PASSWORD = #{password};
+    </select>
+
+    <select id="getAdminPassword" resultType="String">
+        SELECT PASSWORD
+        FROM ADMIN
+        WHERE USERNAME = #{username};
     </select>
 
     <delete id="deleteUser">

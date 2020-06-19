@@ -11,6 +11,8 @@ public interface LineItemMapper {
 
     void insertLineItem(LineItem lineItem);
 
+    int getTotalCount(String orderId);
+
     float getSubTotal(String orderId);
 
     void deleteOrder(String orderId);

@@ -25,8 +25,8 @@
 
   <insert id="insertOrder" parameterType="order">
     INSERT INTO ORDERS
-    (USERNAME, ORDERDATE, TOTALCOUNT, SUBTOTAL, PAID, SENDTO, CHECKOUT)
-    VALUES(#{username}, #{orderDate}, #{totalCount}, #{subTotal}, #{paid}, #{sendTo},#{checkout});
+    (USERNAME, ORDERDATE, TOTALCOUNT, SUBTOTAL, PAID, SENDTO, CHECKOUT, DISPATCHED)
+    VALUES(#{username}, #{orderDate}, #{totalCount}, #{subTotal}, #{paid}, #{sendTo}, #{checkout}, #{dispatched});
   </insert>
 
 
@@ -47,7 +47,8 @@
          USERNAME = #{username},
          ORDERDATE = #{orderDate},
          TOTALCOUNT = #{totalCount},
-         SUBTOTAL = #{subTotal}
+         SUBTOTAL = #{subTotal},
+         DISPATCHED = #{dispatched}
         WHERE ORDERID = #{orderId};
     </update>
 

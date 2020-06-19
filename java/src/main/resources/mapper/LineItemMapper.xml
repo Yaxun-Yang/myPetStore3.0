@@ -14,6 +14,12 @@
     VALUES (#{orderId}, #{itemId}, #{quantity}, #{totalPrice});
   </insert>
 
+    <select id="getTotalCount" resultType="int">
+        SELECT SUM(QUANTITY)
+        FROM LINEITEM
+        WHERE ORDERID = #{orderId};
+    </select>
+
     <select id="getSubTotal" resultType="float">
     SELECT SUM(TOTALPRICE)
     FROM LINEITEM
