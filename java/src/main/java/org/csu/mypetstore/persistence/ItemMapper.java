@@ -7,14 +7,21 @@ import java.util.List;
 
 @Repository
 public interface ItemMapper {
+    void insertItem(Item item);
 
+    void updateItem(Item item);
 
     void updateQuantity(String itemId, int quantity);
 
-    int  getQuantity(String itemId);
+    List<Item> getItemList();
 
     List<Item> getItemListByProductId(String productId);
 
     Item getItemByItemId(String itemId);
 
+    int  getQuantity(String itemId);
+
+    void deleteItemList();
+
+    void deleteItem(String itemId);
 }

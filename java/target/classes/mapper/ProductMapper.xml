@@ -2,11 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.csu.mypetstore.persistence.ProductMapper">
-    <select id="getProductByProductId"  resultType="Product">
-        SELECT *
-        FROM PRODUCT
-        WHERE PRODUCTID = #{productId}
-    </select>
+    <insert id="insertProduct">
+        INSERT INTO PRODUCT
+        VALUES (#{productId}, #{categoryId}, #{name}, #{text});
+    </insert>
+
+    <update id="updateProduct">
+        UPDATE PRODUCT
+        SET
+            CATEGORYID = #{categoryId},
+            NAME = #{name},
+            TEXT = #{text}
+        WHERE PRODUCTID = #{productId};
+    </update>
 
     <select id="getProductListByCategoryId"  resultType="Product">
         SELECT *
@@ -25,4 +33,20 @@
         WHERE lower(name) like #{value}
     </select>
 
+    <select id="getProductByProductId"  resultType="Product">
+        SELECT *
+        FROM PRODUCT
+        WHERE PRODUCTID = #{productId}
+    </select>
+
+    <delete id="deleteProductList">
+        DELETE
+        FROM PRODUCT;
+    </delete>
+
+    <delete id="deleteProduct">
+        DELETE
+        FROM PRODUCT
+        WHERE PRODUCTID = #{productId};
+    </delete>
 </mapper>

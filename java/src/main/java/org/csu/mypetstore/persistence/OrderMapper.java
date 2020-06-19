@@ -21,5 +21,9 @@ public interface OrderMapper {
 
     Order getOrderByOrderId(String orderId);
 
+    void deleteOrder(String orderId);
+
+    void deleteOrders(String username);
+
 
 }

@@ -7,7 +7,15 @@ import java.util.List;
 
 @Repository
 public interface CategoryMapper {
+    void insertCategory(Category category);
+
+    void updateCategory(Category category);
+
     List<Category> getCategoryList();
 
     Category getCategoryByCategoryId(String categoryId);
+
+    void deleteCategoryList();
+
+    void deleteCategory(String categoryId);
 }

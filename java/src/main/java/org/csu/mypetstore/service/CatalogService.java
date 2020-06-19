@@ -9,6 +9,7 @@ import org.csu.mypetstore.persistence.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.PortUnreachableException;
 import java.util.List;
 
 @Service
@@ -20,6 +21,41 @@ public class CatalogService {
     private ProductMapper productMapper;
     @Autowired
     private ItemMapper itemMapper;
+
+    public void insertCategory(Category category)
+    {
+        categoryMapper.insertCategory(category);
+    }
+
+    public void insertProduct(Product product)
+    {
+        productMapper.insertProduct(product);
+    }
+
+    public void insertItem(Item item)
+    {
+        itemMapper.insertItem(item);
+    }
+
+    public void updateCategory(Category category)
+    {
+        categoryMapper.updateCategory(category);
+    }
+
+    public void updateProduct(Product product)
+    {
+        productMapper.updateProduct(product);
+    }
+
+    public void updateItem(Item item)
+    {
+        itemMapper.updateItem(item);
+    }
+
+    public void updateItemQuantity(String itemId, int quantity)
+    {
+        itemMapper.updateQuantity(itemId, quantity);
+    }
 
     public List<Category> getCategoryList()
      {
@@ -41,11 +77,17 @@ public class CatalogService {
         return productMapper.getProductListByCategoryId(categoryId);
     }
 
+    public List<Product> searchProductList(String keyword) {
+        return productMapper.searchProductList("%" + keyword.toLowerCase() + "%");
+    }
+
     public Product getProductByProductId(String productId) {
         return productMapper.getProductByProductId(productId);
     }
-    public List<Product> searchProductList(String keyword) {
-        return productMapper.searchProductList("%" + keyword.toLowerCase() + "%");
+
+    public List<Item> getItemList()
+    {
+        return itemMapper.getItemList();
     }
 
     public List<Item> getItemListByProductId(String productId){
@@ -60,8 +102,33 @@ public class CatalogService {
         return itemMapper.getQuantity(itemId) ;
     }
 
-    public void updateItemQuantity(String itemId, int quantity)
+    public void deleteCategoryList()
     {
-        itemMapper.updateQuantity(itemId, quantity);
+        categoryMapper.deleteCategoryList();
+    }
+
+    public void deleteCategory(String categoryId)
+    {
+        categoryMapper.deleteCategory(categoryId);
+    }
+
+    public void deleteProductList()
+    {
+        productMapper.deleteProductList();
+    }
+
+    public void deleteProduct(String productId)
+    {
+        productMapper.deleteProduct(productId);
+    }
+
+    public void deleteItemList()
+    {
+        itemMapper.deleteItemList();
+    }
+
+    public void deleteItem(String itemId)
+    {
+        itemMapper.deleteItem(itemId);
     }
 }

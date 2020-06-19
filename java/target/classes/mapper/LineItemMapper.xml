@@ -7,12 +7,11 @@
     SELECT *
     FROM LINEITEM
     WHERE ORDERID = #{orderId}
-    AND LI.ITEMID  = I.ITEMID
   </select>
 
     <insert id="insertLineItem" parameterType="LineItem">
     INSERT INTO LINEITEM
-    VALUES (#{orderId}, #{itemId}, #{quantity}, #{price}, #{totalPrice});
+    VALUES (#{orderId}, #{itemId}, #{quantity}, #{totalPrice});
   </insert>
 
     <select id="getSubTotal" resultType="float">
@@ -21,4 +20,9 @@
     WHERE ORDERID = #{orderId};
     </select>
 
+    <delete id="deleteOrder">
+        DELETE
+        FROM LINEITEM
+        WHERE ORDERID = #{orderId};
+    </delete>
 </mapper>

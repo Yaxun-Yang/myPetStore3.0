@@ -13,4 +13,5 @@ public interface LineItemMapper {
 
     float getSubTotal(String orderId);
 
+    void deleteOrder(String orderId);
 }

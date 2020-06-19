@@ -8,11 +8,11 @@
     WHERE ORDERID = #{orderId}
   </select>
 
-    <select id="gerRecentOrder" resultType="Order">
+    <select id="getRecentOrder" resultType="Order">
         SELECT *
         FROM ORDERS
         WHERE USERNAME = #{username}
-        ORDER BY ODERID
+        ORDER BY ORDERID
         DESC LIMIT 1;
     </select>
 
@@ -25,8 +25,8 @@
 
   <insert id="insertOrder" parameterType="order">
     INSERT INTO ORDERS
-    (USERNAME, ORDERDATA, TOTALCOUNT, TOTALPRICE, PAID, SENDTO, CHECKOUT)
-    VALUES(#{username}, #{orderDate}, #{totalCount}, #{totalPrice}, #{paid}, #{sendTo},#{checkout});
+    (USERNAME, ORDERDATE, TOTALCOUNT, SUBTOTAL, PAID, SENDTO, CHECKOUT)
+    VALUES(#{username}, #{orderDate}, #{totalCount}, #{subTotal}, #{paid}, #{sendTo},#{checkout});
   </insert>
 
 
@@ -45,9 +45,21 @@
          CHECKOUT = #{checkout},
          SENDTO = #{sendTo},
          USERNAME = #{username},
-         ORDERDATA = #{orderDate},
+         ORDERDATE = #{orderDate},
          TOTALCOUNT = #{totalCount},
          SUBTOTAL = #{subTotal}
         WHERE ORDERID = #{orderId};
     </update>
+
+    <delete id="deleteOrder">
+        DELETE
+        FROM ORDERS
+        WHERE ORDERID = #{orderId};
+    </delete>
+
+    <delete id="deleteOrders">
+        DELETE
+        FROM ORDERS
+        WHERE USERNAME = #{username};
+    </delete>
 </mapper>

@@ -4,15 +4,10 @@ import org.csu.mypetstore.domain.User;
 import org.csu.mypetstore.domain.Admin;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AccountMapper {
-    User getUserByUsername(String username);
-
-    User getUserByUsernameAndPassword(String username, String password);
-
-    Admin getAdminByUsername(String username);
-
-    Admin getAdminByUsernameAndPassword(String username, String password);
 
     void insertUser(User user);
 
@@ -21,4 +16,26 @@ public interface AccountMapper {
     void updateUser(User user);
 
     void updateAdmin(Admin admin);
+
+    User getUserByUsername(String username);
+
+    User getUserByUsernameAndPassword(String username, String password);
+
+    List<User> getUserList();
+
+    Admin getAdminByUsername(String username);
+
+    Admin getAdminByUsernameAndPassword(String username, String password);
+
+    List<Admin> getAdminList();
+
+    void deleteUser(String username);
+
+    void deleteUserList();
+
+    void deleteAdmin(String admin);
+
+    void deleteAdminList();
+
+
 }

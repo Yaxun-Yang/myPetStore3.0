@@ -7,12 +7,20 @@ import java.util.List;
 
 @Repository
 public interface ProductMapper {
+    void insertProduct(Product product);
+
+    void updateProduct(Product product);
+
     List<Product> getProductList();
 
     List<Product> getProductListByCategoryId(String categoryId);
 
+    List<Product> searchProductList(String keywords);
+
     Product getProductByProductId(String productId);
 
-    List<Product> searchProductList(String keywords);
+    void deleteProductList();
+
+    void deleteProduct(String productId);
 
 }

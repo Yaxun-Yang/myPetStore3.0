@@ -33,6 +33,10 @@ public class OrderService {
         orderMapper.insertOrder(order);
     }
 
+    public Order getOrder(String orderId){
+        return orderMapper.getOrderByOrderId(orderId);
+    }
+
     public Order getRecentOrder(String username)
     {
         return orderMapper.getRecentOrder(username);
@@ -46,6 +50,11 @@ public class OrderService {
     public String getOrderId(String username)
     {
         return orderMapper.getOrderId(username);
+    }
+
+    public List<LineItem> getLineItemList(String orderId)
+    {
+        return  lineItemMapper.getLineItemsByOrderId(orderId);
     }
 
     public void paid(String orderId)
@@ -88,5 +97,25 @@ public class OrderService {
     {
         return lineItemMapper.getSubTotal(orderId);
     }
+
+    @Transactional
+    public void deleteOrder(String orderId )
+    {
+        orderMapper.deleteOrder(orderId);
+        lineItemMapper.deleteOrder(orderId);
+    }
+
+    @Transactional
+    public void deleteOrders(String username)
+    {
+        List<Order> orderList = orderMapper.getOrdersByUsername(username);
+        for(int i =0; i<orderList.size(); i++)
+        {
+            String orderId = orderList.get(i).getOrderId();
+            lineItemMapper.deleteOrder(orderId);
+        }
+        orderMapper.deleteOrders(username);
+    }
+
 
 }

@@ -3,13 +3,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.csu.mypetstore.persistence.CategoryMapper">
+    <insert id="insertCategory">
+        INSERT INTO CATEGORY
+        VALUES (#{categoryId}, #{name});
+    </insert>
+
+    <update id="updateCategory">
+        UPDATE CATEGORY
+        SET NAME = #{name}
+        WHERE CATEGORYID = #{categoryId};
+    </update>
+
     <select id="getCategoryByCategoryId"  resultType="Category">
         SELECT *
         FROM CATEGORY
         WHERE CATEGORYID = #{categoryId};
     </select>
+
     <select id="getCategoryList" resultType="Category">
     SELECT *
     FROM CATEGORY;
     </select>
+
+    <delete id="deleteCategoryList">
+        DELETE
+        FROM CATEGORY;
+    </delete>
+
+    <delete id="deleteCategory">
+        DELETE
+        FROM CATEGORY
+        WHERE CATEGORYID = #{categoryId};
+    </delete>
 </mapper>
