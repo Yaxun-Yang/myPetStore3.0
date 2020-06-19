@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e5ff389-2a7c-42de-988b-2d8191c6311a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alipay_sdk_alipay_sdk_java_4_10_29_ALL.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_62.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/AliPayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/MD5Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/SmsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_14_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_17_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mypetstore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mypetstore.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/OrderApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/OrderApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/AccountMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/LineItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/persistence/LineItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/LineItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/LineItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/LineItemMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/LineItemMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/OrderMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/OrderApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/OrderApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/AccountMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/LineItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/persistence/LineItemMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/OrderService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +119,7 @@
       <workItem from="1592395521710" duration="16769000" />
       <workItem from="1592451207672" duration="57000000" />
       <workItem from="1592569671709" duration="7999000" />
-      <workItem from="1592585645464" duration="13208000" />
+      <workItem from="1592585645464" duration="13483000" />
     </task>
     <task id="LOCAL-00001" summary="catalog finish">
       <created>1592314918474</created>
@@ -204,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592528540932</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="MD5 AliPay finish&#10;photo modify&#10;bug fixed">
+      <created>1592601140184</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1592601140184</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +205,8 @@
     <MESSAGE value="update sql" />
     <MESSAGE value="almost finish" />
     <MESSAGE value="sql update" />
-    <option name="LAST_COMMIT_MESSAGE" value="sql update" />
+    <MESSAGE value="MD5 AliPay finish&#10;photo modify&#10;bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="MD5 AliPay finish&#10;photo modify&#10;bug fixed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="175" y="0" key="#Custom_Plugin_Repositories" timestamp="1592204720716">
@@ -259,10 +233,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="350" y="53" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592246100435" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1592601083843">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1592601134224">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592601083843" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592601134224" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1592377242808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -311,10 +285,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592586679753" />
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592528554362">
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592601184042">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592528554362" />
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592601184042" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1592377242808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
