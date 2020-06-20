@@ -1,4 +1,4 @@
-package org.csu.mypetstore.annotation;
+package org.csu.mypetstore.annotation.label;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -4,11 +4,11 @@ package org.csu.mypetstore.api;
 import com.alibaba.fastjson.JSONObject;
 
 import com.qiniu.common.QiniuException;
-import org.csu.mypetstore.annotation.UserLoginToken;
+import org.csu.mypetstore.annotation.label.UserLoginToken;
 import org.csu.mypetstore.domain.User;
 import org.csu.mypetstore.domain.Admin;
 import org.csu.mypetstore.service.*;
-import org.csu.mypetstore.template.ResponseTemplate;
+import org.csu.mypetstore.domain.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -162,6 +162,7 @@ public class AccountApi {
     @UserLoginToken
     public ResponseTemplate updateUser (@RequestBody JSONObject req)throws QiniuException
     {
+
         User user = new User();
         user.setUsername(req.getString("username"));
         String password= req.getString("password");
@@ -171,17 +172,22 @@ public class AccountApi {
         user.setAddress(req.getString("address"));
         user.setEmail(req.getString("email"));
         user.setPhone(req.getString("phone"));
-        String file = req.getString("url");
-        if(file.substring(0,file.indexOf(":")).equals("http"))
-            user.setUrl(file);
-        else
+
+        if(req.get("file")!= null)
         {
-            String fileType = file.substring(file.lastIndexOf(".")).toLowerCase();
-            String fileName =req.getString("username")+fileType;
+            String file = req.getString("file");
+            String fileName = req.getString("fileName");
+            String fileType = fileName.substring(file.lastIndexOf(".")).toLowerCase();
+            fileName =req.getString("username")+fileType;
             PhotoService.uploadImage(file, fileName);
             user.setUrl(PhotoService.domain+fileName);
             PhotoService.refresh(user.getUrl());
         }
+        else
+        {
+            user.setUrl(req.getString("url"));
+        }
+
         accountService.updateUser(user);
 
         return ResponseTemplate.builder()
@@ -203,16 +209,20 @@ public class AccountApi {
             password =MD5Service.getMD5(password);
         admin.setPassword(password);
         admin.setPhone(req.getString("phone"));
-        String file = req.getString("url");
-        if(file.substring(0,file.indexOf(":")).equals("http"))
-            admin.setUrl(file);
-        else
+
+        if(req.get("file")!= null)
         {
-            String fileType = file.substring(file.lastIndexOf(".")).toLowerCase();
-            String fileName =req.getString("username")+fileType;
+            String file = req.getString("file");
+            String fileName = req.getString("fileName");
+            String fileType = fileName.substring(file.lastIndexOf(".")).toLowerCase();
+            fileName =req.getString("username")+fileType;
             PhotoService.uploadImage(file, fileName);
             admin.setUrl(PhotoService.domain+fileName);
             PhotoService.refresh(admin.getUrl());
+        }
+        else
+        {
+            admin.setUrl(req.getString("url"));
         }
         accountService.updateAdmin(admin);
         return ResponseTemplate.builder()

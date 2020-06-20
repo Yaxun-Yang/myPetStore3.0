@@ -2,7 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e5ff389-2a7c-42de-988b-2d8191c6311a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_1_1_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_1_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/annotation/exception/ParameterErrorException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mypetstore.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mypetstore.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/annotation/PassToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/annotation/label/PassToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/annotation/UserLoginToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/annotation/label/UserLoginToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/AccountApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CartApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CartApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/CatalogApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/OrderApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/api/OrderApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/CartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/LineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/LineItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/AuthenticationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/AuthenticationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/service/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/template/ResponseTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/csu/mypetstore/domain/ResponseTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/annotation/PassToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/annotation/UserLoginToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/AccountApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CartApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CartApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/CatalogApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/OrderApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/api/OrderApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/CartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/CartItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/LineItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/LineItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/AuthenticationInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/AuthenticationInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/interceptor/GlobalExceptionAdvice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/TokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/service/TokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/template/ResponseTemplate$ResponseTemplateBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/csu/mypetstore/template/ResponseTemplate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql/mypetstore.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../sql/mypetstore.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +108,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../pay" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo/token-authentication" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -119,7 +167,9 @@
       <workItem from="1592395521710" duration="16769000" />
       <workItem from="1592451207672" duration="57000000" />
       <workItem from="1592569671709" duration="7999000" />
-      <workItem from="1592585645464" duration="13483000" />
+      <workItem from="1592585645464" duration="13528000" />
+      <workItem from="1592631198358" duration="6463000" />
+      <workItem from="1592643465488" duration="17875000" />
     </task>
     <task id="LOCAL-00001" summary="catalog finish">
       <created>1592314918474</created>
@@ -177,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592601140184</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update sql">
+      <created>1592601265854</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592601265854</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,11 +259,11 @@
     <MESSAGE value="login and send Code" />
     <MESSAGE value="getItemShowList finish" />
     <MESSAGE value="cart finish" />
-    <MESSAGE value="update sql" />
     <MESSAGE value="almost finish" />
     <MESSAGE value="sql update" />
     <MESSAGE value="MD5 AliPay finish&#10;photo modify&#10;bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="MD5 AliPay finish&#10;photo modify&#10;bug fixed" />
+    <MESSAGE value="update sql" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sql" />
   </component>
   <component name="WindowStateProjectService">
     <state x="175" y="0" key="#Custom_Plugin_Repositories" timestamp="1592204720716">
@@ -233,50 +290,50 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="350" y="53" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1592246100435" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1592601134224">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1592684259951">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592601134224" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1592684259951" />
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1592377242808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1592377242808" />
-    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1592594509479">
+    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1592668342284">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592594509479" />
-    <state width="1313" height="218" key="GridCell.Tab.0.bottom" timestamp="1592600947574">
+    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592668342284" />
+    <state width="1313" height="218" key="GridCell.Tab.0.bottom" timestamp="1592679886361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592600947574" />
-    <state width="1313" height="218" key="GridCell.Tab.0.center" timestamp="1592600947573">
+    <state width="1313" height="218" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592679886361" />
+    <state width="1313" height="218" key="GridCell.Tab.0.center" timestamp="1592679886360">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592600947573" />
-    <state width="1313" height="218" key="GridCell.Tab.0.left" timestamp="1592600947572">
+    <state width="1313" height="218" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592679886360" />
+    <state width="1313" height="218" key="GridCell.Tab.0.left" timestamp="1592679886359">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592600947572" />
-    <state width="1313" height="218" key="GridCell.Tab.0.right" timestamp="1592600947573">
+    <state width="1313" height="218" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592679886359" />
+    <state width="1313" height="218" key="GridCell.Tab.0.right" timestamp="1592679886361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592600947573" />
-    <state width="1313" height="218" key="GridCell.Tab.1.bottom" timestamp="1592600947575">
+    <state width="1313" height="218" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592679886361" />
+    <state width="1313" height="218" key="GridCell.Tab.1.bottom" timestamp="1592679886362">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592600947575" />
-    <state width="1313" height="218" key="GridCell.Tab.1.center" timestamp="1592600947574">
+    <state width="1313" height="218" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592679886362" />
+    <state width="1313" height="218" key="GridCell.Tab.1.center" timestamp="1592679886362">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592600947574" />
-    <state width="1313" height="218" key="GridCell.Tab.1.left" timestamp="1592600947574">
+    <state width="1313" height="218" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592679886362" />
+    <state width="1313" height="218" key="GridCell.Tab.1.left" timestamp="1592679886361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592600947574" />
-    <state width="1313" height="218" key="GridCell.Tab.1.right" timestamp="1592600947574">
+    <state width="1313" height="218" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592679886361" />
+    <state width="1313" height="218" key="GridCell.Tab.1.right" timestamp="1592679886362">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1313" height="218" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592600947574" />
+    <state width="1313" height="218" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592679886362" />
     <state x="100" y="0" key="Maven.ArtifactSearchDialog" timestamp="1592520361974">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -285,18 +342,18 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592586679753" />
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592601184042">
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592601274524">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592601184042" />
+    <state x="175" y="32" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1592601274524" />
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1592377242808">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1592377242808" />
-    <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1592569677908">
+    <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1592631198191">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="300" y="147" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592569677908" />
+    <state x="300" y="147" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592631198191" />
     <state x="262" y="0" width="840" height="726" key="search.everywhere.popup" timestamp="1592507345908">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

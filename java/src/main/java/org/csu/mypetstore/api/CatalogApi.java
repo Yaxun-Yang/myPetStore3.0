@@ -1,6 +1,5 @@
 package org.csu.mypetstore.api;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
@@ -11,7 +10,7 @@ import org.csu.mypetstore.domain.Item;
 import org.csu.mypetstore.domain.Product;
 import org.csu.mypetstore.service.CatalogService;
 import org.csu.mypetstore.service.PhotoService;
-import org.csu.mypetstore.template.ResponseTemplate;
+import org.csu.mypetstore.domain.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
@@ -179,16 +178,19 @@ public class CatalogApi {
         item.setAttribute(req.getString("attribute"));
         item.setPrice(req.getFloat("price"));
         item.setQuantity(req.getInteger("quantity"));
-        String file = req.getString("url");
-        if(file.substring(0,file.indexOf(":")).equals("http"))
-            item.setUrl(file);
-        else
+        if(req.get("file")!= null)
         {
-            String fileType = file.substring(file.lastIndexOf(".")).toLowerCase();
-            String fileName =req.getString("itemId")+fileType;
+            String file = req.getString("file");
+            String fileName = req.getString("fileName");
+            String fileType = fileName.substring(file.lastIndexOf(".")).toLowerCase();
+            fileName =req.getString("username")+fileType;
             PhotoService.uploadImage(file, fileName);
             item.setUrl(PhotoService.domain+fileName);
             PhotoService.refresh(item.getUrl());
+        }
+        else
+        {
+            item.setUrl(req.getString("url"));
         }
 
         catalogService.updateItem(item);
