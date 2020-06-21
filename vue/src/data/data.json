@@ -1,0 +1,121 @@
+{
+  "CategoryList": [
+    {
+      "id": "BIRDS",
+      "ProductList": [
+        {
+          "id": "AV-CB-01",
+          "name": "Amazon Parrot",
+          "description": "Great companion for up to 75 years",
+          "ItemList": [
+            {
+              "index3": 1,
+              "item": [
+                {
+                  "id": "item1",
+                  "url": "http://qbyy9dziv.bkt.clouddn.com/item1.JPG",
+                  "UnitCost": "10",
+                  "Supplier": "1",
+                  "Status": "P",
+                  "Attribute": "Spotted Adult Female",
+                  "rotate": false
+                },
+                {
+                  "id": "item2",
+                  "url": "http://qbyy9dziv.bkt.clouddn.com/item1.JPG",
+                  "UnitCost": "20",
+                  "Supplier": "1",
+                  "Status": "P",
+                  "Attribute": "Spotted Adult Female",
+                  "rotate": false
+                },
+                {
+                  "id": "item3",
+                  "url": "http://qbyy9dziv.bkt.clouddn.com/item1.JPG",
+                  "UnitCost": "30",
+                  "Supplier": "1",
+                  "Status": "P",
+                  "Attribute": "Spotted Adult Female",
+                  "rotate": false
+                }
+              ]
+            },
+            {
+              "index3": 2,
+              "item": [
+                {
+                  "id": "item1",
+                  "url": "http://qbyy9dziv.bkt.clouddn.com/item1.JPG",
+                  "UnitCost": "10",
+                  "Supplier": "1",
+                  "Status": "P",
+                  "Attribute": "Spotted Adult Female",
+                  "rotate": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "account": [
+    {
+      "user":
+      {
+        "username": "YYX",
+        "password": "123456",
+        "email": "j2ee@yourdomain.com",
+        "phone": "13677777777",
+        "addr": "changsha",
+        "url": "us1.jpg"
+      },
+      "token": "ttttttt"
+    },
+    {
+      "user":
+      {
+        "username": "WX",
+        "password": "123456",
+        "email": "j2ee@yourdomain.com",
+        "phone": "13677777777",
+        "addr": "changsha"
+      }
+    }
+  ],
+
+  "itemShowList": [
+    {
+      "userId": "j2ee",
+      "ItemUrl": "http://qbyy9dziv.bkt.clouddn.com/item1.JPG",
+      "ItemID": "EST-1",
+      "productID": "FI-SW-01",
+      "text": "Spotted Adult Female",
+      "stock": "Y",
+      "quantity": 1,
+      "price": 10,
+      "totalCost": 10
+    }
+  ],
+  "order": [
+    {
+      "orderid": "1000",
+      "username": "j2ee",
+      "orderdate": "2019-10-27",
+      "totalprice": 39.5,
+      "paid": "",
+      "sendTo": ""
+    }
+  ],
+  "checkOrder": [
+    {
+      "username": "wx",
+      "phone": "15243666630",
+      "addr": "四川省内江市市中区玉溪街道双洞路187号石油容器厂小区门口货架上",
+      "totalprice": 39.5,
+      "paid": "Yes",
+      "sendTo": "四川省内江市市中区玉溪街道双洞路187号石油容器厂小区门口货架上",
+      "totalcount": 4
+    }
+  ]
+}
