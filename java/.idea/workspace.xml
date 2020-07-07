@@ -60,14 +60,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../demo/token-authentication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Spring Boot.MypetstoreApplication">
     <configuration name="MypetstoreApplicationTests.testAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -123,6 +123,10 @@
       <workItem from="1592631198358" duration="6463000" />
       <workItem from="1592643465488" duration="18467000" />
       <workItem from="1592699826640" duration="4406000" />
+      <workItem from="1593343236684" duration="29000" />
+      <workItem from="1593343412122" duration="1119000" />
+      <workItem from="1593373608662" duration="196000" />
+      <workItem from="1593829014262" duration="4316000" />
     </task>
     <task id="LOCAL-00001" summary="catalog finish">
       <created>1592314918474</created>
@@ -259,10 +263,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1592377242808" />
-    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1592668342284">
+    <state x="413" y="62" key="FileChooserDialogImpl" timestamp="1593363804225">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592668342284" />
+    <state x="413" y="62" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593363804225" />
     <state width="1313" height="218" key="GridCell.Tab.0.bottom" timestamp="1592709027948">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -299,10 +303,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="100" y="0" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1592520361974" />
-    <state x="68" y="0" key="SettingsEditor" timestamp="1592586679753">
+    <state x="68" y="0" key="SettingsEditor" timestamp="1593363434928">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592586679753" />
+    <state x="68" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593363434928" />
     <state x="175" y="32" key="Vcs.Push.Dialog.v2" timestamp="1592684785070">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -311,10 +315,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1592377242808" />
-    <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1592699822474">
+    <state x="300" y="147" key="com.intellij.ide.util.TipDialog" timestamp="1593829014361">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="300" y="147" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1592699822474" />
+    <state x="300" y="147" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593829014361" />
+    <state x="0" y="0" key="new project wizard" timestamp="1593363912364">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="0" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1593363912364" />
     <state x="262" y="0" width="840" height="726" key="search.everywhere.popup" timestamp="1592507345908">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
